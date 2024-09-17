@@ -61,7 +61,9 @@
     <Analyzer Include="E:\Unity\Versions\2023.2.8f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\VarianButton.cs" />
     <Compile Include="Assets\Scripts\AppLogic.cs" />
+    <Compile Include="Assets\Scripts\Question.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
