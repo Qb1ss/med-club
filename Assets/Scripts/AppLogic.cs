@@ -31,6 +31,11 @@ public class AppLogic : MonoBehaviour
         StartingApp();
     }
 
+    private void OnEnable()
+    {
+        QuestionManager.OnEndedQuiz.AddListener(EndedQuiz);
+    }
+
     #endregion
 
     #region PRIVATE METHODS
@@ -53,6 +58,17 @@ public class AppLogic : MonoBehaviour
         _menuCanvas.gameObject.SetActive(false);
 
         OnStartQuiz?.Invoke();
+    }
+
+    ///конце викторины
+    private void EndedQuiz()
+    {
+        _menuCanvas.gameObject.SetActive(true);
+        _questionCanvas.gameObject.SetActive(false);
+
+        _welcomeScreen.gameObject.SetActive(true);
+        _startQuizButton.gameObject.SetActive(true);
+        _startQuizButton.onClick.AddListener(() => StartingQuiz());
     }
 
     #endregion

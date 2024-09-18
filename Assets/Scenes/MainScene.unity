@@ -882,9 +882,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1189679426}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d3be7441aa950c4491a996a76518cc1, type: 3}
+  m_Script: {fileID: 11500000, guid: 0f2ddcb5e2bcd6d4d8399d883a0932bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _questions:
+  - {fileID: 2973970365261167899, guid: 35c40760b07b8d64e8976f8fa5cc72ad, type: 3}
+  - {fileID: 2973970365261167899, guid: f4314b808a8f29848b88dee8e54b70d8, type: 3}
+  _currentQuestion: 0
   _varianButtons:
   - {fileID: 1117763275}
   - {fileID: 1388354673}
