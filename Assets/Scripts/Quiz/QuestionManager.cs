@@ -1,5 +1,9 @@
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Events;
+using TMPro;
+using System;
+using UnityEditor;
 
 public class QuestionManager : MonoBehaviour
 {
@@ -17,16 +21,20 @@ public class QuestionManager : MonoBehaviour
 
     [Header("COMPONENTS")]
     [Tooltip("Buttons with option")]
-    [SerializeField] private VarianButton[] _varianButtons = null;
+    [SerializeField] private GridLayoutGroup _optionButtons = null;
+    [Space(height: 5f)]
+
+    [Tooltip("Question display")]
+    [SerializeField] private TextMeshProUGUI _questionText = null;
 
 
     #region UNITY
 
     private void Start()
     {
-        VarianButton.OnSetAnswer.AddListener(SetAnswer);
-
         _currentQuestion = 0;
+
+        OptionButton.OnSetAnswer.AddListener(SetAnswer);
     }
 
     private void OnEnable()
@@ -39,33 +47,31 @@ public class QuestionManager : MonoBehaviour
     #region PRIVATE METHODS
 
     ///обновление вопроса
-    private void QuestionUpdating() //
+    private void QuestionUpdating()
     {
-        Debug.Log($"Question: {_questions[_currentQuestion].MainText}");
+        CleaningTheGrid();
 
-        SettingRightVariant();
-    }  
+        _questionText.text = _questions[_currentQuestion].QuestionText;
 
-    ///установка правильного ответа
-    private void SettingRightVariant()
-    {
-        int rightVarian = Random.Range(0, _varianButtons.Length); Debug.Log($"Right variant is {rightVarian}"); //
-
-        foreach (var button in _varianButtons)
+        foreach (OptionButton option in _questions[_currentQuestion].OptionButton)
         {
-            button.IsRight = false;
-
-            button.SettingColor();
+            Instantiate(option, _optionButtons.transform);
         }
-
-        _varianButtons[rightVarian].IsRight = true;
     }
+
+    ///проверка правильности ответа
+    private void CleaningTheGrid()
+    {
+        foreach (Transform child in _optionButtons.transform)
+        {
+            Destroy(child.gameObject);
+        }
+    }
+
 
     ///проверка правильности ответа
     private void SetAnswer(bool isRight)
     {
-        Debug.Log(isRight);
-
         if (isRight == true)
         {
             QuestionValueCheching();

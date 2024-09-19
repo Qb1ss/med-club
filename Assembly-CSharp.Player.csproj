@@ -63,7 +63,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\AppLogic.cs" />
     <Compile Include="Assets\Scripts\Quiz\QuestionManager.cs" />
-    <Compile Include="Assets\Scripts\Quiz\VarianButton.cs" />
+    <Compile Include="Assets\Scripts\Quiz\OptionButton.cs" />
     <Compile Include="Assets\Scripts\Quiz\Question.cs" />
   </ItemGroup>
   <ItemGroup>
