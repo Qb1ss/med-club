@@ -4,8 +4,6 @@ using UnityEngine.Events;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using System;
-using UnityEngine.UIElements;
 
 public class QuestionManager : MonoBehaviour
 {
@@ -59,11 +57,15 @@ public class QuestionManager : MonoBehaviour
         _questionText.text = _questions[_currentQuestion].QuestionText;
 
         StartCoroutine(SetPositionCoroutine());
+        StopCoroutine(SetPositionCoroutine());
     }
 
     ///очистка прошлого варианта
     private void CleaningTheGrid()
     {
+        _positionsValue.Clear();
+        _optionButton.Clear();
+
         foreach (Transform child in _optionButtons.transform)
         {
             Destroy(child.gameObject);
@@ -104,11 +106,11 @@ public class QuestionManager : MonoBehaviour
     {
         for (int i = 0; i < _questions[_currentQuestion].OptionButton.Length; i++)
         {
-            int j = UnityEngine.Random.Range(0, _questions[_currentQuestion].OptionButton.Length); Debug.Log($"J = {j}");
+            int j = Random.Range(0, _questions[_currentQuestion].OptionButton.Length);
 
             while (_positionsValue.Contains(j) == true)
             {
-                j = UnityEngine.Random.Range(0, _questions[_currentQuestion].OptionButton.Length); Debug.Log($"J = {j}");
+                j = Random.Range(0, _questions[_currentQuestion].OptionButton.Length);
             }
          
             _positionsValue.Add(j);
@@ -117,8 +119,6 @@ public class QuestionManager : MonoBehaviour
 
             Instantiate(_optionButton[i], _optionButtons.transform);
         }
-
-        Debug.Log("End for");
 
         yield break;
     }

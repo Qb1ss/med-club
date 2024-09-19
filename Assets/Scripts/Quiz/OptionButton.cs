@@ -60,8 +60,16 @@ public class OptionButton : MonoBehaviour
 
     private void SettingAnswer()
     {
-        if (_isRight == false) _button.GetComponent<Image>().color = Color.red;
-        if (_isRight == true) _button.GetComponent<Image>().color = Color.green;
+        if (_isRight == false)
+        {
+            _button.GetComponent<Image>().color = Color.red;
+
+            _optionDisplay.gameObject.SetActive(false);
+        }
+        if (_isRight == true)
+        {
+            _button.GetComponent<Image>().color = Color.green;
+        }
 
         OnSetAnswer?.Invoke(_isRight);
     }

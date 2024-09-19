@@ -1384,7 +1384,6 @@ MonoBehaviour:
   _questions:
   - {fileID: 2973970365261167899, guid: 35c40760b07b8d64e8976f8fa5cc72ad, type: 3}
   - {fileID: 2973970365261167899, guid: f4314b808a8f29848b88dee8e54b70d8, type: 3}
-  _optionButton: []
   _questionText: {fileID: 1661694350}
   _optionButtons: {fileID: 808658034}
 --- !u!1 &1230395876
