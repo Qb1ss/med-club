@@ -1,7 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using System.Collections;
+using System.Collections.Generic;
 using TMPro;
+using System;
+using UnityEngine.UIElements;
 
 public class QuestionManager : MonoBehaviour
 {
@@ -10,7 +14,7 @@ public class QuestionManager : MonoBehaviour
     public static UnityEvent OnEndedQuiz = new UnityEvent();
 
     #endregion
-    
+
     [Header("PARAMETERS")]
     [Tooltip("Question object")]
     [SerializeField] private Question[] _questions = null;
@@ -24,6 +28,9 @@ public class QuestionManager : MonoBehaviour
     [Space(height: 5f)]
     [Tooltip("Buttons with option")]
     [SerializeField] private GridLayoutGroup _optionButtons = null;
+
+    private List<OptionButton> _optionButton = new List<OptionButton>();
+    private List<int> _positionsValue = new List<int>();
 
 
     #region UNITY
@@ -51,10 +58,7 @@ public class QuestionManager : MonoBehaviour
 
         _questionText.text = _questions[_currentQuestion].QuestionText;
 
-        foreach (OptionButton option in _questions[_currentQuestion].OptionButton)
-        {
-            SettingRandomPosition(option);
-        }
+        StartCoroutine(SetPositionCoroutine());
     }
 
     ///очистка прошлого варианта
@@ -76,14 +80,6 @@ public class QuestionManager : MonoBehaviour
         }
     }
 
-    ///случайная позиция вопроса
-    private void SettingRandomPosition(OptionButton option)
-    {
-        int position = Random.Range(0, _questions[_currentQuestion].OptionButton.Length); Debug.Log($"Position: {position}");
-
-        Instantiate(option, _optionButtons.transform);
-    }
-
     ///проверка количества вопросов
     private void QuestionValueCheching()
     {
@@ -97,6 +93,34 @@ public class QuestionManager : MonoBehaviour
         {
             OnEndedQuiz?.Invoke();
         }
+    }
+
+    #endregion
+
+    #region COROUTINE
+
+    ///случайная вариантов ответа
+    private IEnumerator SetPositionCoroutine()
+    {
+        for (int i = 0; i < _questions[_currentQuestion].OptionButton.Length; i++)
+        {
+            int j = UnityEngine.Random.Range(0, _questions[_currentQuestion].OptionButton.Length); Debug.Log($"J = {j}");
+
+            while (_positionsValue.Contains(j) == true)
+            {
+                j = UnityEngine.Random.Range(0, _questions[_currentQuestion].OptionButton.Length); Debug.Log($"J = {j}");
+            }
+         
+            _positionsValue.Add(j);
+
+            _optionButton.Add(_questions[_currentQuestion].OptionButton[j]);
+
+            Instantiate(_optionButton[i], _optionButtons.transform);
+        }
+
+        Debug.Log("End for");
+
+        yield break;
     }
 
     #endregion

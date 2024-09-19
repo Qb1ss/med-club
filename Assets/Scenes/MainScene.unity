@@ -1384,6 +1384,7 @@ MonoBehaviour:
   _questions:
   - {fileID: 2973970365261167899, guid: 35c40760b07b8d64e8976f8fa5cc72ad, type: 3}
   - {fileID: 2973970365261167899, guid: f4314b808a8f29848b88dee8e54b70d8, type: 3}
+  _optionButton: []
   _questionText: {fileID: 1661694350}
   _optionButtons: {fileID: 808658034}
 --- !u!1 &1230395876
@@ -1626,7 +1627,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ecefd58bab3f3241bed24947e793093, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cardAudioSource: {fileID: 0}
+  _cardAudioSource: {fileID: 695181409}
 --- !u!1 &1453419385
 GameObject:
   m_ObjectHideFlags: 0
