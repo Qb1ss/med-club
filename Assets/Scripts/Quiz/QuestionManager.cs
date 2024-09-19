@@ -2,8 +2,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using TMPro;
-using System;
-using UnityEditor;
 
 public class QuestionManager : MonoBehaviour
 {
@@ -12,20 +10,20 @@ public class QuestionManager : MonoBehaviour
     public static UnityEvent OnEndedQuiz = new UnityEvent();
 
     #endregion
-
+    
     [Header("PARAMETERS")]
     [Tooltip("Question object")]
     [SerializeField] private Question[] _questions = null;
 
-    [SerializeField] private int _currentQuestion = 0;
+    private int _currentQuestion = 0;
 
     [Header("COMPONENTS")]
-    [Tooltip("Buttons with option")]
-    [SerializeField] private GridLayoutGroup _optionButtons = null;
-    [Space(height: 5f)]
-
     [Tooltip("Question display")]
     [SerializeField] private TextMeshProUGUI _questionText = null;
+
+    [Space(height: 5f)]
+    [Tooltip("Buttons with option")]
+    [SerializeField] private GridLayoutGroup _optionButtons = null;
 
 
     #region UNITY
@@ -55,11 +53,11 @@ public class QuestionManager : MonoBehaviour
 
         foreach (OptionButton option in _questions[_currentQuestion].OptionButton)
         {
-            Instantiate(option, _optionButtons.transform);
+            SettingRandomPosition(option);
         }
     }
 
-    ///проверка правильности ответа
+    ///очистка прошлого варианта
     private void CleaningTheGrid()
     {
         foreach (Transform child in _optionButtons.transform)
@@ -76,6 +74,14 @@ public class QuestionManager : MonoBehaviour
         {
             QuestionValueCheching();
         }
+    }
+
+    ///случайная позиция вопроса
+    private void SettingRandomPosition(OptionButton option)
+    {
+        int position = Random.Range(0, _questions[_currentQuestion].OptionButton.Length); Debug.Log($"Position: {position}");
+
+        Instantiate(option, _optionButtons.transform);
     }
 
     ///проверка количества вопросов

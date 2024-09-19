@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(AudioController))]
 public class AppLogic : MonoBehaviour
 {
     #region EVENTS
@@ -23,6 +24,10 @@ public class AppLogic : MonoBehaviour
 
     [Tooltip("Start quiz button")]
     [SerializeField] private Button _startQuizButton = null;
+    [Space(height: 5f)]
+
+    [Tooltip("Audio controller")]
+    [SerializeField] private AudioController _audioController = null;
 
 
     #region UNITY
@@ -56,6 +61,8 @@ public class AppLogic : MonoBehaviour
     {
         _questionCanvas.gameObject.SetActive(true);
         _menuCanvas.gameObject.SetActive(false);
+
+        _audioController.CardAudioSource.Play();
 
         OnStartQuiz?.Invoke();
     }
