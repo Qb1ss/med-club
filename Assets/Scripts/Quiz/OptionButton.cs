@@ -77,12 +77,11 @@ public class OptionButton : MonoBehaviour
             _image.sprite = _incorrectOptionSprite;
             _optionDisplay.color = _incorrectOptionColor;
 
-            //_optionDisplay.gameObject.SetActive(false);
+            _button.interactable = false;
         }
         if (_isRight == true)
         {
             _optionDisplay.color = _correctOptionColor;
-            ///
         }
 
         OnSetAnswer?.Invoke(_isRight);
