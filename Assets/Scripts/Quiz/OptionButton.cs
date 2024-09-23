@@ -15,6 +15,16 @@ public class OptionButton : MonoBehaviour
     [Header("PARAMETERS")]
     [Tooltip("Option")]
     [SerializeField] private string _optionText = "";
+    [Space(height: 5f)]
+
+    [Tooltip("Image of incorrect option")]
+    [SerializeField] private Sprite _incorrectOptionSprite = null;
+    [Space(height: 5f)]
+
+    [Tooltip("Color of correct option")]
+    [SerializeField] private Color _correctOptionColor = Color.green;
+    [Tooltip("Color of incorrect option")]
+    [SerializeField] private Color _incorrectOptionColor = Color.red;
 
     [Header("COMPONENTS")]
     [Tooltip("Option display")]
@@ -23,6 +33,7 @@ public class OptionButton : MonoBehaviour
     [SerializeField] private bool _isRight = false;
 
     private Button _button = null;
+    private Image _image = null;
 
     #region PUBLIC FIELDS
 
@@ -36,6 +47,7 @@ public class OptionButton : MonoBehaviour
     private void Awake()
     {
         _button = GetComponent<Button>();
+        _image = GetComponent<Image>();
     }
 
     private void Start()
@@ -62,13 +74,15 @@ public class OptionButton : MonoBehaviour
     {
         if (_isRight == false)
         {
-            _button.GetComponent<Image>().color = Color.red;
+            _image.sprite = _incorrectOptionSprite;
+            _optionDisplay.color = _incorrectOptionColor;
 
             _optionDisplay.gameObject.SetActive(false);
         }
         if (_isRight == true)
         {
-            _button.GetComponent<Image>().color = Color.green;
+            _optionDisplay.color = _correctOptionColor;
+            ///
         }
 
         OnSetAnswer?.Invoke(_isRight);

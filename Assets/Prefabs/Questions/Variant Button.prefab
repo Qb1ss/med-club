@@ -68,8 +68,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e37f0aaa9cca117489107e534bbb2219, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: -2946242008345304248, guid: bdbf2b5806b4cf74c9fe871cbf99a03a, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -97,7 +97,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -135,6 +135,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _optionText: 
+  _incorrectOptionSprite: {fileID: 8213326372612031864, guid: d062e977cca488c409078ae7da668ef8, type: 3}
+  _correctOptionColor: {r: 0.02745098, g: 0.49803922, b: 0.26666668, a: 1}
+  _incorrectOptionColor: {r: 1, g: 0.64705884, b: 0.64705884, a: 1}
   _optionDisplay: {fileID: 6350404823430823126}
   _isRight: 0
 --- !u!1 &3442104157671467977
@@ -172,7 +175,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -80, y: -80}
+  m_SizeDelta: {x: -30, y: -290}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1030585746626493221
 CanvasRenderer:
@@ -202,10 +205,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Option
+  m_text: "\u043D\u0435\u043E\u0431\u0445\u043E\u0434\u0438\u043C\u043E\u0435 \u043F\u043E\u0445\u0443\u0434\u0435\u043D\u0438\u0435"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a4bc24f1ab160a343b7a8356973b90b3, type: 2}
+  m_sharedMaterial: {fileID: -2573816807454922556, guid: a4bc24f1ab160a343b7a8356973b90b3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -229,11 +232,11 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
+  m_fontSize: 31.7
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 18
+  m_fontSizeMin: 25
   m_fontSizeMax: 40
   m_fontStyle: 1
   m_HorizontalAlignment: 2
