@@ -77,7 +77,7 @@ public class OptionButton : MonoBehaviour
             _image.sprite = _incorrectOptionSprite;
             _optionDisplay.color = _incorrectOptionColor;
 
-            _optionDisplay.gameObject.SetActive(false);
+            //_optionDisplay.gameObject.SetActive(false);
         }
         if (_isRight == true)
         {

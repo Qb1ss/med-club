@@ -16,6 +16,8 @@ public class AppLogic : MonoBehaviour
     [SerializeField] private Canvas _menuCanvas = null;
     [Tooltip("Question canvas")]
     [SerializeField] private Canvas _questionCanvas= null;
+    [Tooltip("End canvas")]
+    [SerializeField] private Canvas _endCanvas = null;
     [Space(height: 10f)]
 
     [Tooltip("Welcome screen")]
@@ -50,6 +52,7 @@ public class AppLogic : MonoBehaviour
     {
         _menuCanvas.gameObject.SetActive(true);
         _questionCanvas.gameObject.SetActive(false);
+        _endCanvas.gameObject.SetActive(false);
 
         _welcomeScreen.gameObject.SetActive(true);
         _startQuizButton.gameObject.SetActive(true);
@@ -61,6 +64,7 @@ public class AppLogic : MonoBehaviour
     {
         _questionCanvas.gameObject.SetActive(true);
         _menuCanvas.gameObject.SetActive(false);
+        _endCanvas.gameObject.SetActive(false);
 
         _audioController.CardAudioSource.Play();
 
@@ -70,12 +74,9 @@ public class AppLogic : MonoBehaviour
     ///конце викторины
     private void EndedQuiz()
     {
-        _menuCanvas.gameObject.SetActive(true);
+        _menuCanvas.gameObject.SetActive(false);
         _questionCanvas.gameObject.SetActive(false);
-
-        _welcomeScreen.gameObject.SetActive(true);
-        _startQuizButton.gameObject.SetActive(true);
-        _startQuizButton.onClick.AddListener(() => StartingQuiz());
+        _endCanvas.gameObject.SetActive(true);
     }
 
     #endregion

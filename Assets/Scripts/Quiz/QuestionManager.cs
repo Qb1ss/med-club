@@ -93,6 +93,8 @@ public class QuestionManager : MonoBehaviour
         }
         else 
         {
+            _currentQuestion = 0;
+
             OnEndedQuiz?.Invoke();
         }
     }
