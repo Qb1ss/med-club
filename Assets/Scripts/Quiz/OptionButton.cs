@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 using UnityEngine.Events;
 using TMPro;
 using DG.Tweening;
-using UnityEngine.Audio;
 
 [RequireComponent(typeof(Button), typeof(Image))]
 [RequireComponent(typeof(AudioSource))]
