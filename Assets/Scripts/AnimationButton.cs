@@ -17,7 +17,8 @@ public class AnimationButton : MonoBehaviour
     #endregion
 
     private RectTransform _rectTransform = null;
-    private Button _button;
+    private Button _button = null;
+
 
     #region UNITY
 

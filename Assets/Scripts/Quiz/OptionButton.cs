@@ -2,8 +2,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using TMPro;
+using DG.Tweening;
+using UnityEngine.Audio;
 
-[RequireComponent(typeof(Button))]
+[RequireComponent(typeof(Button), typeof(Image))]
+[RequireComponent(typeof(AudioSource))]
 public class OptionButton : MonoBehaviour
 {
     #region EVENTS
@@ -26,6 +29,16 @@ public class OptionButton : MonoBehaviour
     [Tooltip("Color of incorrect option")]
     [SerializeField] private Color _incorrectOptionColor = Color.red;
 
+    [Tooltip("Correct audio clip")]
+    [SerializeField] private AudioClip _correctClip = null;
+    [Tooltip("Incorrect audio clip")]
+    [SerializeField] private AudioClip _incorrectClip = null;
+    [Tooltip("Correct audio clip")]
+    [SerializeField] private AudioMixerGroup _correctMixer = null;
+    [Tooltip("Incorrect audio clip")]
+    [SerializeField] private AudioMixerGroup _incorrectMixer = null;
+    [Space(height: 5f)]
+
     [Header("COMPONENTS")]
     [Tooltip("Option display")]
     [SerializeField] private TextMeshProUGUI _optionDisplay = null;
@@ -34,6 +47,7 @@ public class OptionButton : MonoBehaviour
 
     private Button _button = null;
     private Image _image = null;
+    private AudioSource _audioSource = null;
 
     #region PUBLIC FIELDS
 
@@ -48,6 +62,7 @@ public class OptionButton : MonoBehaviour
     {
         _button = GetComponent<Button>();
         _image = GetComponent<Image>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     private void Start()
@@ -74,13 +89,23 @@ public class OptionButton : MonoBehaviour
     {
         if (_isRight == false)
         {
+            _audioSource.clip = _incorrectClip;
+            _audioSource.outputAudioMixerGroup = _incorrectMixer;
+            _audioSource.Play();
+
             _image.sprite = _incorrectOptionSprite;
             _optionDisplay.color = _incorrectOptionColor;
+
+            gameObject.GetComponent<RectTransform>().DOScale(1f, 0.1f);
 
             _button.interactable = false;
         }
         if (_isRight == true)
         {
+            _audioSource.clip = _correctClip;
+            _audioSource.outputAudioMixerGroup = _correctMixer;
+            _audioSource.Play();
+
             _optionDisplay.color = _correctOptionColor;
         }
 

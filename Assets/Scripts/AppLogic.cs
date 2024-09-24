@@ -28,14 +28,15 @@ public class AppLogic : MonoBehaviour
     [SerializeField] private Button _startQuizButton = null;
     [Space(height: 5f)]
 
-    [Tooltip("Audio controller")]
-    [SerializeField] private AudioController _audioController = null;
+    private AudioController _audioController = null;
 
 
     #region UNITY
     private void Awake()
     {
         StartingApp();
+
+        _audioController = GetComponent<AudioController>();
     }
 
     private void OnEnable()
@@ -56,17 +57,18 @@ public class AppLogic : MonoBehaviour
 
         _welcomeScreen.gameObject.SetActive(true);
         _startQuizButton.gameObject.SetActive(true);
+
         _startQuizButton.onClick.AddListener(() => StartingQuiz());
     }
 
     ///начало викторины
     private void StartingQuiz()
     {
+        _audioController.ButtonAudioSource.Play();
+
         _questionCanvas.gameObject.SetActive(true);
         _menuCanvas.gameObject.SetActive(false);
         _endCanvas.gameObject.SetActive(false);
-
-        _audioController.CardAudioSource.Play();
 
         OnStartQuiz?.Invoke();
     }
