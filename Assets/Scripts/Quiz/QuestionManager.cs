@@ -8,6 +8,12 @@ using DG.Tweening;
 
 public class QuestionManager : MonoBehaviour
 {
+    #region CONSTS
+
+    private const float ANIMATION_TIME = 3f;
+
+    #endregion
+
     #region EVENTS
 
     public static UnityEvent OnEndedQuiz = new UnityEvent();
@@ -106,19 +112,10 @@ public class QuestionManager : MonoBehaviour
     ///обновление вопроса
     private IEnumerator QuestionUpdatingCoroutine()
     {
-        yield return new WaitForSeconds(3f);//
+        yield return new WaitForSeconds(ANIMATION_TIME);
 
         StartCoroutine(SetPositionCoroutine());
         StopCoroutine(SetPositionCoroutine());
-
-        yield return new WaitForSeconds(1f);//
-
-        foreach(OptionButton button in _optionButton)
-        {
-            button.GetComponent<RectTransform>().DORotate(new Vector3(0f, 45f, 0f), 1f);
-        }
-
-        yield return new WaitForSeconds(1f);//
 
         yield break;
     }

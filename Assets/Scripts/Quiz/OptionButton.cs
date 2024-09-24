@@ -82,8 +82,6 @@ public class OptionButton : MonoBehaviour
 
     private void Start()
     {
-        _rectTransform.Rotate(new Vector3(0f, 180f, 0f));
-
         StartCoroutine(FlipAnimationCoroutine());
 
         _optionDisplay.text = $"{_optionText}";
