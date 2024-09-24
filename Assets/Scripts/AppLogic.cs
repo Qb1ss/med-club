@@ -39,6 +39,11 @@ public class AppLogic : MonoBehaviour
         _audioController = GetComponent<AudioController>();
     }
 
+    private void Start()
+    {
+        _startQuizButton.onClick.AddListener(() => StartingQuiz());
+    }
+
     private void OnEnable()
     {
         QuestionManager.OnEndedQuiz.AddListener(EndedQuiz);
@@ -56,9 +61,6 @@ public class AppLogic : MonoBehaviour
         _endCanvas.gameObject.SetActive(false);
 
         _welcomeScreen.gameObject.SetActive(true);
-        _startQuizButton.gameObject.SetActive(true);
-
-        _startQuizButton.onClick.AddListener(() => StartingQuiz());
     }
 
     ///начало викторины

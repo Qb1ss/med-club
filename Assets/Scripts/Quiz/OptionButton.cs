@@ -2,13 +2,22 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
 using UnityEngine.Events;
+using System.Collections;
 using TMPro;
 using DG.Tweening;
 
 [RequireComponent(typeof(Button), typeof(Image))]
-[RequireComponent(typeof(AudioSource))]
+[RequireComponent(typeof(AudioSource),typeof(RectTransform))]
 public class OptionButton : MonoBehaviour
 {
+    #region CONSTS
+
+    private const float ANIMATION_TIME = 1f;
+
+    private const int STEP_COUNT = 2;
+
+    #endregion
+
     #region EVENTS
 
     public static UnityEvent<bool> OnSetAnswer = new UnityEvent<bool>();
@@ -20,6 +29,10 @@ public class OptionButton : MonoBehaviour
     [SerializeField] private string _optionText = "";
     [Space(height: 5f)]
 
+    [Tooltip("Image of default option")]
+    [SerializeField] private Sprite _defaultOptionSprite = null;
+    [Tooltip("Image of cart back")]
+    [SerializeField] private Sprite _cartBackSprite = null;
     [Tooltip("Image of incorrect option")]
     [SerializeField] private Sprite _incorrectOptionSprite = null;
     [Space(height: 5f)]
@@ -48,6 +61,7 @@ public class OptionButton : MonoBehaviour
     private Button _button = null;
     private Image _image = null;
     private AudioSource _audioSource = null;
+    private RectTransform _rectTransform = null;
 
     #region PUBLIC FIELDS
 
@@ -63,13 +77,21 @@ public class OptionButton : MonoBehaviour
         _button = GetComponent<Button>();
         _image = GetComponent<Image>();
         _audioSource = GetComponent<AudioSource>();
+        _rectTransform = GetComponent<RectTransform>();
     }
 
     private void Start()
     {
+        _rectTransform.Rotate(new Vector3(0f, 180f, 0f));
+
+        StartCoroutine(FlipAnimationCoroutine());
+
         _optionDisplay.text = $"{_optionText}";
 
         _button.onClick.AddListener(() => SettingAnswer());
+
+        _image.sprite = _cartBackSprite;
+        _optionDisplay.gameObject.SetActive(false);
     }
 
     #endregion
@@ -110,6 +132,31 @@ public class OptionButton : MonoBehaviour
         }
 
         OnSetAnswer?.Invoke(_isRight);
+    }
+
+    #endregion
+
+    #region COROUTINE
+
+    private IEnumerator FlipAnimationCoroutine()
+    {
+        _button.interactable = false;
+
+        float stepAnimationTime = ANIMATION_TIME / STEP_COUNT;
+
+        _rectTransform.DORotate(new Vector3(0f, -90f, 0f), stepAnimationTime);
+
+        yield return new WaitForSeconds(stepAnimationTime);
+
+        _image.sprite = _defaultOptionSprite;
+        _optionDisplay.gameObject.SetActive(true);
+        _button.interactable = true;
+
+        _rectTransform.DORotate(new Vector3(0f, 0f, 0f), stepAnimationTime);
+
+        yield return new WaitForSeconds(stepAnimationTime);
+
+        yield break;
     }
 
     #endregion

@@ -4,6 +4,7 @@ using UnityEngine.Events;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using DG.Tweening;
 
 public class QuestionManager : MonoBehaviour
 {
@@ -49,15 +50,14 @@ public class QuestionManager : MonoBehaviour
 
     #region PRIVATE METHODS
 
-    ///обновление вопроса
+    ///запуск обновление вопроса
     private void QuestionUpdating()
     {
         CleaningTheGrid();
 
         _questionText.text = _questions[_currentQuestion].QuestionText;
 
-        StartCoroutine(SetPositionCoroutine());
-        StopCoroutine(SetPositionCoroutine());
+        StartCoroutine(QuestionUpdatingCoroutine());
     }
 
     ///очистка прошлого варианта
@@ -102,6 +102,26 @@ public class QuestionManager : MonoBehaviour
     #endregion
 
     #region COROUTINE
+
+    ///обновление вопроса
+    private IEnumerator QuestionUpdatingCoroutine()
+    {
+        yield return new WaitForSeconds(3f);//
+
+        StartCoroutine(SetPositionCoroutine());
+        StopCoroutine(SetPositionCoroutine());
+
+        yield return new WaitForSeconds(1f);//
+
+        foreach(OptionButton button in _optionButton)
+        {
+            button.GetComponent<RectTransform>().DORotate(new Vector3(0f, 45f, 0f), 1f);
+        }
+
+        yield return new WaitForSeconds(1f);//
+
+        yield break;
+    }
 
     ///случайная вариантов ответа
     private IEnumerator SetPositionCoroutine()
