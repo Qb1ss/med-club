@@ -29,10 +29,14 @@ public class QuestionManager : MonoBehaviour
     [Header("COMPONENTS")]
     [Tooltip("Question display")]
     [SerializeField] private TextMeshProUGUI _questionText = null;
-
     [Space(height: 5f)]
+
     [Tooltip("Buttons with option")]
     [SerializeField] private GridLayoutGroup _optionButtons = null;
+    [Space(height: 10f)]
+    
+    [Tooltip("Audio controller")]
+    [SerializeField] private AudioController _audioController = null;
 
     private List<OptionButton> _optionButton = new List<OptionButton>();
     private List<int> _positionsValue = new List<int>();
@@ -84,6 +88,8 @@ public class QuestionManager : MonoBehaviour
     {
         if (isRight == true)
         {
+            _audioController.CorrectAudioSource.Play();
+
             QuestionValueCheching();
         }
     }

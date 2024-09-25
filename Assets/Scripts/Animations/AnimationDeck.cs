@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 using DG.Tweening;
 
+[RequireComponent(typeof(AudioSource))]
 public class AnimationDeck : MonoBehaviour
 {
     #region CONSTS
@@ -29,7 +30,14 @@ public class AnimationDeck : MonoBehaviour
     [Tooltip("Image of cart back")]
     [SerializeField] private Image _cartBack = null;
 
+    private AudioSource _audioSource = null;
+
     #region UNITY
+
+    private void Awake()
+    {
+        _audioSource = GetComponent<AudioSource>();
+    }
 
     private void OnEnable()
     {
@@ -62,6 +70,10 @@ public class AnimationDeck : MonoBehaviour
 
         Image cartBack = Instantiate(_cartBack, _spawnParent.transform);
         cartBack.gameObject.GetComponent<RectTransform>().position = _spawnPosition.position;
+
+        _audioSource.priority = Random.Range(100, 200);
+        _audioSource.Play();
+
         cartBack.rectTransform.DOMove(_targetPosition.position, _movingTime);
         cartBack.rectTransform.DOScale(MAX_SCALE, _movingTime);
 
