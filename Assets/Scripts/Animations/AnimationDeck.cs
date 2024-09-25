@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using DG.Tweening;
+using NUnit.Framework;
 
 [RequireComponent(typeof(AudioSource))]
 public class AnimationDeck : MonoBehaviour
@@ -19,6 +20,20 @@ public class AnimationDeck : MonoBehaviour
     [Tooltip("Moving time")]
     [SerializeField] private float _movingTime = 1f;
 
+    [Header("Cart backs")]
+    [Tooltip("Cart backs for 1-2 question")]
+    [SerializeField] private Image _cartBack1 = null;
+    [Tooltip("Cart backs for 3-4 question")]
+    [SerializeField] private Image _cartBack2 = null;
+    [Tooltip("Cart backs for 5-6 question")]
+    [SerializeField] private Image _cartBack3 = null;
+    [Tooltip("Cart backs for 7-8 question")]
+    [SerializeField] private Image _cartBack4 = null;
+
+    private int _currentQustion = 0;
+    private int _maxQuestion = 8;
+
+    [Header("COMPONENTS")]
     [Tooltip("Spawn position")]
     [SerializeField] private Transform _spawnPosition = null;
     [Tooltip("Target position")]
@@ -60,13 +75,27 @@ public class AnimationDeck : MonoBehaviour
         StartCoroutine(AnimationCoroutine());
     }
 
+    private void CartBackAnimation()
+    {
+        if (_currentQustion > 8) return;
+
+        if (_currentQustion == 2) Destroy(_cartBack4.gameObject);
+        if (_currentQustion == 4) Destroy(_cartBack3.gameObject);
+        if (_currentQustion == 6) Destroy(_cartBack2.gameObject);
+        if (_currentQustion == 8) Destroy(_cartBack1.gameObject);
+    }
+
     #endregion
 
     #region COROUTINE
 
     private IEnumerator AnimationCoroutine()
     {
+        _currentQustion++;
+
         yield return new WaitForSeconds(_delayTime);
+
+        CartBackAnimation();
 
         Image cartBack = Instantiate(_cartBack, _spawnParent.transform);
         cartBack.gameObject.GetComponent<RectTransform>().position = _spawnPosition.position;
