@@ -29,6 +29,10 @@ public class OptionButton : MonoBehaviour
     [SerializeField] private string _optionText = "";
     [Space(height: 5f)]
 
+    [Tooltip("Exti animation time")]
+    [SerializeField] private float _exitAnimationTime = 1f;
+    [Space(height: 5f)]
+
     [Tooltip("Image of default option")]
     [SerializeField] private Sprite _defaultOptionSprite = null;
     [Tooltip("Image of cart back")]
@@ -65,6 +69,9 @@ public class OptionButton : MonoBehaviour
 
     #region PUBLIC FIELDS
 
+    public string OptionText { get => _optionText; set => _optionText = value; }
+    public TextMeshProUGUI ÎptionDisplay { get => _optionDisplay; set => _optionDisplay = value; }
+
     public bool IsRight { get => _isRight; set => _isRight = value; }
 
     #endregion
@@ -82,9 +89,9 @@ public class OptionButton : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(FlipAnimationCoroutine());
-
         _optionDisplay.text = $"{_optionText}";
+
+        StartCoroutine(FlipAnimationCoroutine());
 
         _button.onClick.AddListener(() => SettingAnswer());
 
@@ -92,13 +99,9 @@ public class OptionButton : MonoBehaviour
         _optionDisplay.gameObject.SetActive(false);
     }
 
-    #endregion
-
-    #region PUBLIC METHODS
-
-    public void SettingColor()
+    private void OnEnable()
     {
-        _button.GetComponent<Image>().color = Color.white;
+        //QuestionManager.OnExitAnimation.AddListener(ExitAnimation);
     }
 
     #endregion
@@ -132,6 +135,15 @@ public class OptionButton : MonoBehaviour
         OnSetAnswer?.Invoke(_isRight);
     }
 
+    private void ExitAnimation()
+    {
+        Color colorText = _optionDisplay.color;
+        Color colorImage = _image.color;
+
+        _optionDisplay.DOColor(new Color(colorText.r, colorText.g, colorText.b, 0f), _exitAnimationTime);
+        _image.DOColor(new Color(colorImage.r, colorImage.g, colorImage.b, 0f), _exitAnimationTime);
+    }
+
     #endregion
 
     #region COROUTINE
@@ -153,6 +165,14 @@ public class OptionButton : MonoBehaviour
         _rectTransform.DORotate(new Vector3(0f, 0f, 0f), stepAnimationTime);
 
         yield return new WaitForSeconds(stepAnimationTime);
+
+        yield break;
+    }
+
+    private IEnumerator ExitAnimationCoroutine()
+    {
+        GameObject duplicate = Instantiate(gameObject, gameObject.transform.parent);
+        duplicate.gameObject.GetComponent<RectTransform>().position = gameObject.transform.position;
 
         yield break;
     }

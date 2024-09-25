@@ -16,6 +16,7 @@ public class QuestionManager : MonoBehaviour
 
     #region EVENTS
 
+    public static UnityEvent OnExitAnimation = new UnityEvent();
     public static UnityEvent OnEndedQuiz = new UnityEvent();
 
     #endregion
@@ -68,6 +69,7 @@ public class QuestionManager : MonoBehaviour
         _questionText.text = _questions[_currentQuestion].QuestionText;
 
         StartCoroutine(QuestionUpdatingCoroutine());
+
     }
 
     ///очистка прошлого варианта
@@ -88,6 +90,8 @@ public class QuestionManager : MonoBehaviour
     {
         if (isRight == true)
         {
+            OnExitAnimation?.Invoke();
+
             _audioController.CorrectAudioSource.Play();
 
             QuestionValueCheching();
