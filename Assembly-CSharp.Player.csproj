@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\Animations\AnimationDeck.cs" />
     <Compile Include="Assets\Scripts\EndGameController.cs" />
     <Compile Include="Assets\Scripts\Quiz\Question.cs" />
+    <Compile Include="Assets\Scripts\Animations\AnimationScreen.cs" />
     <Compile Include="Assets\Scripts\AudioController.cs" />
   </ItemGroup>
   <ItemGroup>
