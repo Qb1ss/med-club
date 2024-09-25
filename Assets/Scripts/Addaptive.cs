@@ -43,9 +43,9 @@ public class Addaptive : MonoBehaviour
 
     private void AddaptiveApp()
     {
-        if (_lastRatio == _camera.scaledPixelWidth) return;
+        float ratio = (float)_camera.pixelWidth / (float)_camera.pixelHeight * 100;
 
-        float ratio = (float)_camera.pixelWidth / (float)_camera.pixelHeight * 100; Debug.Log($"Ratio = {ratio}");
+        if (_lastRatio == ratio) return;
 
         if (ratio <= MIN_RATIO)
         {
@@ -86,6 +86,8 @@ public class Addaptive : MonoBehaviour
             _middleBackground.gameObject.SetActive(false);
             _maxBackground.gameObject.SetActive(true);
         }
+
+        Debug.Log($"Ratio = {ratio}");
 
         _lastRatio = ratio;
     }
