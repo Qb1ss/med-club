@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\AppLogic.cs" />
     <Compile Include="Assets\Scripts\Quiz\QuestionManager.cs" />
     <Compile Include="Assets\Scripts\Quiz\OptionButton.cs" />
+    <Compile Include="Assets\Scripts\CanvasHelper.cs" />
     <Compile Include="Assets\Scripts\Animations\AnimationDeck.cs" />
     <Compile Include="Assets\Scripts\EndGameController.cs" />
     <Compile Include="Assets\Scripts\Quiz\Question.cs" />
