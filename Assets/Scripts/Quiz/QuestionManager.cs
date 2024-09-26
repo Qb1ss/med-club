@@ -17,7 +17,7 @@ public class QuestionManager : MonoBehaviour
     #region EVENTS
 
     public static UnityEvent OnExitAnimation = new UnityEvent();
-    public static UnityEvent OnEndedQuiz = new UnityEvent();
+    public static UnityEvent<int> OnEndedQuiz = new UnityEvent<int>();
 
     #endregion
 
@@ -25,7 +25,9 @@ public class QuestionManager : MonoBehaviour
     [Tooltip("Question object")]
     [SerializeField] private Question[] _questions = null;
 
+    private int _rightAnswer = 0;
     private int _currentQuestion = 0;
+    private int _attempt = 0;
 
     [Header("COMPONENTS")]
     [Tooltip("Question display")]
@@ -42,6 +44,12 @@ public class QuestionManager : MonoBehaviour
     private List<OptionButton> _optionButton = new List<OptionButton>();
     private List<int> _positionsValue = new List<int>();
 
+    #region PUBLIC FIELDS
+
+    public int RightAnswer { get => _rightAnswer; set => _rightAnswer = value; }
+
+    #endregion
+
 
     #region UNITY
 
@@ -55,6 +63,15 @@ public class QuestionManager : MonoBehaviour
     private void OnEnable()
     {
         if(gameObject.activeInHierarchy == true) QuestionUpdating();
+    }
+
+    #endregion
+
+    #region PUBLIC METHODS
+
+    public void QuizRestart()
+    {
+        _currentQuestion = 0;
     }
 
     #endregion
@@ -90,12 +107,16 @@ public class QuestionManager : MonoBehaviour
     {
         if (isRight == true)
         {
+            if (_attempt == 0) _rightAnswer++;
+
             OnExitAnimation?.Invoke();
 
             _audioController.CorrectAudioSource.Play();
 
             QuestionValueCheching();
         }
+
+        _attempt++;
     }
 
     ///проверка количества вопросов
@@ -109,9 +130,10 @@ public class QuestionManager : MonoBehaviour
         }
         else 
         {
-            _currentQuestion = 0;
+            OnEndedQuiz?.Invoke(_rightAnswer);
 
-            OnEndedQuiz?.Invoke();
+            _currentQuestion = 0;
+            _rightAnswer = 0;
         }
     }
 
@@ -123,6 +145,8 @@ public class QuestionManager : MonoBehaviour
     private IEnumerator QuestionUpdatingCoroutine()
     {
         yield return new WaitForSeconds(ANIMATION_TIME);
+
+        _attempt = 0;
 
         StartCoroutine(SetPositionCoroutine());
         StopCoroutine(SetPositionCoroutine());

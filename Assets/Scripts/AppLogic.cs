@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using TMPro;
 
 [RequireComponent(typeof(AudioController))]
 public class AppLogic : MonoBehaviour
@@ -10,6 +11,11 @@ public class AppLogic : MonoBehaviour
     public static UnityEvent OnStartQuiz = new UnityEvent();
 
     #endregion
+
+    [Header("PARAMETERS")]
+    [Tooltip("Corrent answer value")]
+    [SerializeField] private int _correntAnswerValue = 5;
+
 
     [Header("COMPONENTS")]
     [Tooltip("Menu canvas")]
@@ -22,6 +28,11 @@ public class AppLogic : MonoBehaviour
 
     [Tooltip("Welcome screen")]
     [SerializeField] private GameObject _welcomeScreen = null;
+    [Space(height: 5f)]
+    [Tooltip("Win screen")]
+    [SerializeField] private GameObject _winScreen = null;
+    [Tooltip("Lose screen")]
+    [SerializeField] private GameObject _loseScreen = null;
     [Space(height: 5f)]
 
     [Tooltip("Start quiz button")]
@@ -51,6 +62,24 @@ public class AppLogic : MonoBehaviour
 
     #endregion
 
+    #region PUBLIC METHODS
+
+    public void QuizRestart()
+    {
+        _questionCanvas.GetComponent<QuestionManager>().QuizRestart();
+    }
+
+    public void OnStartMenu()
+    {
+        _menuCanvas.gameObject.SetActive(true);
+        _questionCanvas.gameObject.SetActive(false);
+        _endCanvas.gameObject.SetActive(false);
+
+        _welcomeScreen.gameObject.SetActive(true);
+    }
+
+    #endregion
+
     #region PRIVATE METHODS
 
     ///запуск приложения: закрытие окон, открытие начального экрана
@@ -76,11 +105,22 @@ public class AppLogic : MonoBehaviour
     }
 
     ///конце викторины
-    private void EndedQuiz()
+    private void EndedQuiz(int rightAnswer)
     {
         _menuCanvas.gameObject.SetActive(false);
         _questionCanvas.gameObject.SetActive(false);
         _endCanvas.gameObject.SetActive(true);
+
+        if (rightAnswer < _correntAnswerValue)
+        {
+            _winScreen.gameObject.SetActive(false);
+            _loseScreen.gameObject.SetActive(true);
+        }
+        else if (rightAnswer >= _correntAnswerValue)
+        { 
+            _winScreen.gameObject.SetActive(true);
+            _loseScreen.gameObject.SetActive(false);
+        }
     }
 
     #endregion
