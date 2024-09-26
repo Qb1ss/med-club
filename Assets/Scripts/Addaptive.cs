@@ -13,9 +13,14 @@ public class Addaptive : MonoBehaviour
     #endregion
 
     [Header("COMPONENTS")]
+    [Header("Background")]
+    [Tooltip("Min background")]
     [SerializeField] private GameObject _minBackground = null;
+    [Tooltip("Small background")]
     [SerializeField] private GameObject _smallBackground = null;
+    [Tooltip("Middle background")]
     [SerializeField] private GameObject _middleBackground = null;
+    [Tooltip("Max background")]
     [SerializeField] private GameObject _maxBackground = null;
 
     [Space(height: 5f)]
@@ -24,6 +29,7 @@ public class Addaptive : MonoBehaviour
     private float _lastRatio = 0f;
 
     private Camera _camera = null;
+
 
     #region UNITY
 
