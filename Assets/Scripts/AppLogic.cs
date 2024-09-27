@@ -26,12 +26,6 @@ public class AppLogic : MonoBehaviour
     [SerializeField] private Canvas _endCanvas = null;
     [Space(height: 10f)]
 
-    [Tooltip("Win screen")]
-    [SerializeField] private GameObject _winScreen = null;
-    [Tooltip("Lose screen")]
-    [SerializeField] private GameObject _loseScreen = null;
-    [Space(height: 5f)]
-
     [Tooltip("Start quiz button")]
     [SerializeField] private Button _startQuizButton = null;
     [Space(height: 5f)]
@@ -106,13 +100,11 @@ public class AppLogic : MonoBehaviour
 
         if (rightAnswer < _correntAnswerValue)
         {
-            _winScreen.gameObject.SetActive(false);
-            _loseScreen.gameObject.SetActive(true);
+
         }
         else if (rightAnswer >= _correntAnswerValue)
         { 
-            _winScreen.gameObject.SetActive(true);
-            _loseScreen.gameObject.SetActive(false);
+
         }
     }
 
