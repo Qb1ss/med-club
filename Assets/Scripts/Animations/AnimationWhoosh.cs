@@ -3,12 +3,6 @@ using System.Collections;
 using DG.Tweening;
 using UnityEngine.Audio;
 
-public enum TypeScreen
-{
-    Welcome = 0,
-    End = 1
-}
-
 public enum WhooshSide
 {
     Left = 0,
@@ -20,26 +14,30 @@ public enum WhooshSide
 [RequireComponent(typeof (AudioSource), typeof(RectTransform))]
 public class AnimationScreen : MonoBehaviour
 {
+    #region CONSTS
+
+    private const float STATE_SITE_POSITION = 2000f;
+
+    #endregion
+
     [Header("PARAMETERS")]
-    [Tooltip("Type screen")]
-    [SerializeField] private TypeScreen _typeScreen = TypeScreen.Welcome;
     [Tooltip("Whoosh side")]
     [SerializeField] private WhooshSide _whooshSide = WhooshSide.Left;
-    [Space(height: 10f)]
+    [Space(height: 5f)]
 
+    [Tooltip("Start delay")]
+    [SerializeField] [Range(0.25f, 2f)] private float _startDelayTime = 0.5f;
+    [Tooltip("Animation delay")]
+    [SerializeField] [Range(0.25f, 2f)] private float _animationTime = 0.5f;
+
+    [Space(height: 10f)]
     [Tooltip("Whoosh clip")]
     [SerializeField] private AudioClip _whooshClip = null;
     [Tooltip("Whoosh mixer group")]
     [SerializeField] private AudioMixerGroup _mixerGroup = null;
-    [Space(height: 10f)]
 
-    [Tooltip("Start delay")]
-    [SerializeField] private float _startDelayTime = 0.5f;
-    [Tooltip("Animation delay")]
-    [SerializeField] private float _animationTime = 0.5f;
-
-    [SerializeField] private Vector3 _startPosition = Vector3.zero;
-    [SerializeField] private Vector3 _targetPosition = Vector3.zero;
+    private Vector3 _startPosition = Vector3.zero;
+    private Vector3 _targetPosition = Vector3.zero;
 
     private AudioSource _audioSource = null;
     private RectTransform _rectTransform = null;
@@ -72,22 +70,22 @@ public class AnimationScreen : MonoBehaviour
 
         if (_whooshSide == WhooshSide.Left)
         {
-            _startPosition = new Vector3(_rectTransform.localPosition.x + 2000, _rectTransform.localPosition.y, _rectTransform.localPosition.z);
+            _startPosition = new Vector3(_rectTransform.localPosition.x + STATE_SITE_POSITION, _rectTransform.localPosition.y, _rectTransform.localPosition.z);
         }
 
         if (_whooshSide == WhooshSide.Right)
         {
-            _startPosition = new Vector3(_rectTransform.localPosition.x - 2000, _rectTransform.localPosition.y, _rectTransform.localPosition.z);
+            _startPosition = new Vector3(_rectTransform.localPosition.x - STATE_SITE_POSITION, _rectTransform.localPosition.y, _rectTransform.localPosition.z);
         }
 
         if (_whooshSide == WhooshSide.Top)
         {
-            _startPosition = new Vector3(_rectTransform.localPosition.x, _rectTransform.localPosition.y + 2000, _rectTransform.localPosition.z);
+            _startPosition = new Vector3(_rectTransform.localPosition.x, _rectTransform.localPosition.y + STATE_SITE_POSITION, _rectTransform.localPosition.z);
         }
 
         if (_whooshSide == WhooshSide.Bottom)
         {
-            _startPosition = new Vector3(_rectTransform.localPosition.x, -_rectTransform.localPosition.y - 2000, _rectTransform.localPosition.z);
+            _startPosition = new Vector3(_rectTransform.localPosition.x, -_rectTransform.localPosition.y - STATE_SITE_POSITION, _rectTransform.localPosition.z);
         }
 
         _rectTransform.localPosition = _startPosition;

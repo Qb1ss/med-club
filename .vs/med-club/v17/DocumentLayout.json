@@ -3,12 +3,8 @@
   "WorkspaceRootPath": "E:\\Unity\\Projects\\med-club\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A7D668AD-76F0-0F7A-2178-243980C3210D}|Assembly-CSharp.csproj|e:\\unity\\projects\\med-club\\assets\\scripts\\endgamecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7D668AD-76F0-0F7A-2178-243980C3210D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\endgamecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A7D668AD-76F0-0F7A-2178-243980C3210D}|Assembly-CSharp.csproj|e:\\unity\\projects\\med-club\\assets\\scripts\\addaptive.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7D668AD-76F0-0F7A-2178-243980C3210D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\addaptive.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A7D668AD-76F0-0F7A-2178-243980C3210D}|Assembly-CSharp.csproj|e:\\unity\\projects\\med-club\\assets\\scripts\\animations\\animationwhoosh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7D668AD-76F0-0F7A-2178-243980C3210D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\animations\\animationwhoosh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,27 +19,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "EndGameController.cs",
-              "DocumentMoniker": "E:\\Unity\\Projects\\med-club\\Assets\\Scripts\\EndGameController.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\EndGameController.cs",
-              "ToolTip": "E:\\Unity\\Projects\\med-club\\Assets\\Scripts\\EndGameController.cs",
-              "RelativeToolTip": "Assets\\Scripts\\EndGameController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "AnimationWhoosh.cs",
+              "DocumentMoniker": "E:\\Unity\\Projects\\med-club\\Assets\\Scripts\\Animations\\AnimationWhoosh.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Animations\\AnimationWhoosh.cs",
+              "ToolTip": "E:\\Unity\\Projects\\med-club\\Assets\\Scripts\\Animations\\AnimationWhoosh.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Animations\\AnimationWhoosh.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAgwD0AAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-27T04:15:24.415Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Addaptive.cs",
-              "DocumentMoniker": "E:\\Unity\\Projects\\med-club\\Assets\\Scripts\\Addaptive.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Addaptive.cs",
-              "ToolTip": "E:\\Unity\\Projects\\med-club\\Assets\\Scripts\\Addaptive.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Addaptive.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAqwFUAAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-27T01:54:38.893Z",
+              "WhenOpened": "2024-09-27T04:39:38.745Z",
               "EditorCaption": ""
             }
           ]
