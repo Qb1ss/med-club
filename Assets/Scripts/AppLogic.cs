@@ -26,9 +26,6 @@ public class AppLogic : MonoBehaviour
     [SerializeField] private Canvas _endCanvas = null;
     [Space(height: 10f)]
 
-    [Tooltip("Welcome screen")]
-    [SerializeField] private GameObject _welcomeScreen = null;
-    [Space(height: 5f)]
     [Tooltip("Win screen")]
     [SerializeField] private GameObject _winScreen = null;
     [Tooltip("Lose screen")]
@@ -74,8 +71,6 @@ public class AppLogic : MonoBehaviour
         _menuCanvas.gameObject.SetActive(true);
         _questionCanvas.gameObject.SetActive(false);
         _endCanvas.gameObject.SetActive(false);
-
-        _welcomeScreen.gameObject.SetActive(true);
     }
 
     #endregion
@@ -88,8 +83,6 @@ public class AppLogic : MonoBehaviour
         _menuCanvas.gameObject.SetActive(true);
         _questionCanvas.gameObject.SetActive(false);
         _endCanvas.gameObject.SetActive(false);
-
-        //_welcomeScreen.gameObject.SetActive(true);
     }
 
     ///начало викторины
