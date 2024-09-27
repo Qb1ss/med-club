@@ -5,14 +5,25 @@ public class Addaptive : MonoBehaviour
 {
     #region CONSTS
 
-    private const float MIN_RATIO = 55f;
-    private const float SMALL_RATIO = 100f;
-    private const float MIDDLE_RATIO = 150f;
-    private const float MAX_RATIO = 180f;
+    private const float MIN_BACKGROUND_RATIO = 55f;
+    private const float SMALL_BACKGROUND_RATIO = 100f;
+    private const float MIDDLE_BACKGROUND_RATIO = 150f;
+    private const float MAX_BACKGROUND_RATIO = 180f;
+
+    private const float MIN_MENU_RATIO = 100f;
+    private const float MAX_MENU_RATIO = 150f;
 
     #endregion
 
     [Header("COMPONENTS")]
+    [Header("Menu")]
+    [Tooltip("Min menu")]
+    [SerializeField] private GameObject _minMenu = null;
+    [Tooltip("Middle menu")]
+    [SerializeField] private GameObject _middleMenu = null;
+    [Tooltip("Max menu")]
+    [SerializeField] private GameObject _maxMenu = null;
+
     [Header("Background")]
     [Tooltip("Min background")]
     [SerializeField] private GameObject _minBackground = null;
@@ -53,7 +64,41 @@ public class Addaptive : MonoBehaviour
 
         if (_lastRatio == ratio) return;
 
-        if (ratio <= MIN_RATIO)
+        MenuAddaptiving(ratio);
+        BackgroundAddaptiving(ratio);
+
+        Debug.Log($"Ratio = {ratio}");
+
+        _lastRatio = ratio;
+    }
+
+    private void MenuAddaptiving(float ratio)
+    {
+        if (ratio <= MIN_MENU_RATIO)
+        {
+            _minMenu.gameObject.SetActive(true);
+            _middleMenu.gameObject.SetActive(false);
+            _maxMenu.gameObject.SetActive(false);
+        }
+
+        if (ratio > MIN_MENU_RATIO && ratio <= MAX_MENU_RATIO)
+        {
+            _minMenu.gameObject.SetActive(false);
+            _middleMenu.gameObject.SetActive(true);
+            _maxMenu.gameObject.SetActive(false);
+        }
+
+        if (ratio > MAX_MENU_RATIO)
+        {
+            _minMenu.gameObject.SetActive(false);
+            _middleMenu.gameObject.SetActive(false);
+            _maxMenu.gameObject.SetActive(true);
+        }
+    }
+
+    private void BackgroundAddaptiving(float ratio)
+    {
+        if (ratio <= MIN_BACKGROUND_RATIO)
         {
             _backgroundCanvas.GetComponent<CanvasScaler>().matchWidthOrHeight = 1f;
 
@@ -63,7 +108,7 @@ public class Addaptive : MonoBehaviour
             _maxBackground.gameObject.SetActive(false);
         }
 
-        if (ratio > MIN_RATIO && ratio <= SMALL_RATIO)
+        if (ratio > MIN_BACKGROUND_RATIO && ratio <= SMALL_BACKGROUND_RATIO)
         {
             _backgroundCanvas.GetComponent<CanvasScaler>().matchWidthOrHeight = 0f;
 
@@ -73,7 +118,7 @@ public class Addaptive : MonoBehaviour
             _maxBackground.gameObject.SetActive(false);
         }
 
-        if (ratio > SMALL_RATIO && ratio <= MAX_RATIO)
+        if (ratio > SMALL_BACKGROUND_RATIO && ratio <= MAX_BACKGROUND_RATIO)
         {
             _backgroundCanvas.GetComponent<CanvasScaler>().matchWidthOrHeight = 1f;
 
@@ -83,7 +128,7 @@ public class Addaptive : MonoBehaviour
             _maxBackground.gameObject.SetActive(false);
         }
 
-        if (ratio > MAX_RATIO)
+        if (ratio > MAX_BACKGROUND_RATIO)
         {
             _backgroundCanvas.GetComponent<CanvasScaler>().matchWidthOrHeight = 0f;
 
@@ -92,10 +137,6 @@ public class Addaptive : MonoBehaviour
             _middleBackground.gameObject.SetActive(false);
             _maxBackground.gameObject.SetActive(true);
         }
-
-        Debug.Log($"Ratio = {ratio}");
-
-        _lastRatio = ratio;
     }
 
     #endregion

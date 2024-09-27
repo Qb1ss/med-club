@@ -89,7 +89,7 @@ public class AppLogic : MonoBehaviour
         _questionCanvas.gameObject.SetActive(false);
         _endCanvas.gameObject.SetActive(false);
 
-        _welcomeScreen.gameObject.SetActive(true);
+        //_welcomeScreen.gameObject.SetActive(true);
     }
 
     ///начало викторины
