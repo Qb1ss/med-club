@@ -1,7 +1,5 @@
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Events;
-using TMPro;
 
 [RequireComponent(typeof(AudioController))]
 public class AppLogic : MonoBehaviour
@@ -9,6 +7,7 @@ public class AppLogic : MonoBehaviour
     #region EVENTS
 
     public static UnityEvent OnStartQuiz = new UnityEvent();
+    public static UnityEvent OnUpdateSide = new UnityEvent();
 
     #endregion
 
