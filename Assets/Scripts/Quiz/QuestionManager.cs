@@ -12,6 +12,8 @@ public class QuestionManager : MonoBehaviour
 
     private const float ANIMATION_TIME = 3f;
 
+    private const float MIN_QUIZ_RATIO = 100f;
+
     #endregion
 
     #region EVENTS
@@ -25,21 +27,29 @@ public class QuestionManager : MonoBehaviour
     [Tooltip("Question object")]
     [SerializeField] private Question[] _questions = null;
 
+    private float _ratio = 0;
+
     private int _rightAnswer = 0;
     private int _currentQuestion = 0;
     private int _attempt = 0;
 
     [Header("COMPONENTS")]
-    [Tooltip("Question display")]
-    [SerializeField] private TextMeshProUGUI _questionText = null;
+    [Tooltip("Min grid with buttons")]
+    [SerializeField] private TextMeshProUGUI _minQuestionDisplay = null;
+    [Tooltip("Max grid with buttons")]
+    [SerializeField] private TextMeshProUGUI _maxQuestionDisplay = null;
+    [Tooltip("Min question display")]
     [Space(height: 5f)]
-
-    [Tooltip("Buttons with option")]
-    [SerializeField] private GridLayoutGroup _optionButtons = null;
+    [SerializeField] private GridLayoutGroup _minGrid = null;
+    [Tooltip("Max question display")]
+    [SerializeField] private GridLayoutGroup _maxGrid = null;
     [Space(height: 10f)]
-    
+
     [Tooltip("Audio controller")]
     [SerializeField] private AudioController _audioController = null;
+    
+    private TextMeshProUGUI _questionText = null;
+    private GridLayoutGroup _optionButtons = null;
 
     private List<OptionButton> _optionButton = new List<OptionButton>();
     private List<int> _positionsValue = new List<int>();
@@ -62,7 +72,7 @@ public class QuestionManager : MonoBehaviour
 
     private void OnEnable()
     {
-        if(gameObject.activeInHierarchy == true) QuestionUpdating();
+        AppLogic.OnSideUpdate.AddListener(RatioSaved);
     }
 
     #endregion
@@ -77,6 +87,51 @@ public class QuestionManager : MonoBehaviour
     #endregion
 
     #region PRIVATE METHODS
+
+    ///обновление расширений
+    private void RatioSaved(float ratio)
+    {
+        _ratio = ratio;
+
+        SideUpdated(); 
+        QuestionUpdating();
+    }
+
+    ///обновление расширений
+    private void SideUpdated()
+    {
+        TextMeshProUGUI newDisplay = null;
+        GridLayoutGroup newGridLayoutGroup = null;
+
+        if (_ratio <= MIN_QUIZ_RATIO)
+        {
+            _minQuestionDisplay.gameObject.SetActive(true);
+            _maxQuestionDisplay.gameObject.SetActive(false);
+            
+            newDisplay = _minQuestionDisplay;
+
+            _minGrid.gameObject.SetActive(true);
+            _maxGrid.gameObject.SetActive(false);
+
+            newGridLayoutGroup = _minGrid;
+        }
+
+        if (_ratio > MIN_QUIZ_RATIO)
+        {
+            _minQuestionDisplay.gameObject.SetActive(false);
+            _maxQuestionDisplay.gameObject.SetActive(true);
+
+            newDisplay = _maxQuestionDisplay;
+
+            _minGrid.gameObject.SetActive(false);
+            _maxGrid.gameObject.SetActive(true);
+
+            newGridLayoutGroup = _maxGrid;
+        }
+
+        _questionText = newDisplay;
+        _optionButtons = newGridLayoutGroup;
+    }
 
     ///запуск обновление вопроса
     private void QuestionUpdating()

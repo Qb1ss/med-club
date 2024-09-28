@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class Addaptive : MonoBehaviour
@@ -10,10 +11,19 @@ public class Addaptive : MonoBehaviour
 
     private const float MIN_QUIZ_RATIO = 100f;
 
+    private const float MIN_END_MENU_RATIO = 90f;
+    private const float MAX_END_MENU_RATIO = 150f;
+
     private const float MIN_BACKGROUND_RATIO = 55f;
     private const float SMALL_BACKGROUND_RATIO = 100f;
     private const float MIDDLE_BACKGROUND_RATIO = 150f;
     private const float MAX_BACKGROUND_RATIO = 180f;
+
+    #endregion
+
+    #region EVENTS
+
+    public static UnityEvent<float> OnSideUpdate = new UnityEvent<float>();
 
     #endregion
 
@@ -31,6 +41,14 @@ public class Addaptive : MonoBehaviour
     [SerializeField] private GameObject _minQuiz = null;
     [Tooltip("Max quiz")]
     [SerializeField] private GameObject _maxQuiz = null;
+
+    [Header("End game menu")]
+    [Tooltip("Min end game menu")]
+    [SerializeField] private GameObject _minEndGameMenu = null;
+    [Tooltip("Middle end game menu")]
+    [SerializeField] private GameObject _middleEndGameMenu = null;
+    [Tooltip("Max end game menu")]
+    [SerializeField] private GameObject _maxEndGameMenu = null;
 
     [Header("Background")]
     [Tooltip("Min background")]
@@ -73,8 +91,11 @@ public class Addaptive : MonoBehaviour
         if (_lastRatio == ratio) return;
 
         MenuAddaptiving(ratio);
-        BackgroundAddaptiving(ratio);
         QuizAddaptiving(ratio);
+        EndGameMenuAddaptiving(ratio);
+        BackgroundAddaptiving(ratio);
+
+        OnSideUpdate?.Invoke(ratio);
 
         Debug.Log($"Ratio = {ratio}");
 
@@ -117,6 +138,30 @@ public class Addaptive : MonoBehaviour
         {
             _minQuiz.gameObject.SetActive(false);
             _maxQuiz.gameObject.SetActive(true);
+        }
+    }
+
+    private void EndGameMenuAddaptiving(float ratio)
+    {
+        if (ratio <= MIN_END_MENU_RATIO)
+        {
+            _minEndGameMenu.gameObject.SetActive(true);
+            _middleEndGameMenu.gameObject.SetActive(false);
+            _maxEndGameMenu.gameObject.SetActive(false);
+        }
+
+        if (ratio > MIN_END_MENU_RATIO && ratio <= MAX_END_MENU_RATIO)
+        {
+            _minEndGameMenu.gameObject.SetActive(false);
+            _middleEndGameMenu.gameObject.SetActive(true);
+            _maxEndGameMenu.gameObject.SetActive(false);
+        }
+
+        if (ratio > MAX_END_MENU_RATIO)
+        {
+            _minEndGameMenu.gameObject.SetActive(false);
+            _middleEndGameMenu.gameObject.SetActive(false);
+            _maxEndGameMenu.gameObject.SetActive(true);
         }
     }
 

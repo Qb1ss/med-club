@@ -7,7 +7,9 @@ public class AppLogic : MonoBehaviour
     #region EVENTS
 
     public static UnityEvent OnStartQuiz = new UnityEvent();
-    public static UnityEvent OnUpdateSide = new UnityEvent();
+    public static UnityEvent<float> OnSideUpdate = new UnityEvent<float>();
+    public static UnityEvent<int> OnWinGame = new UnityEvent<int>();
+    public static UnityEvent<int> OnLoseGame = new UnityEvent<int>();
 
     #endregion
 
@@ -17,11 +19,13 @@ public class AppLogic : MonoBehaviour
 
     [Header("COMPONENTS")]
     [Tooltip("Menu canvas")]
-    [SerializeField] private Canvas _menuCanvas = null;
+    [SerializeField] private GameMenu _menuCanvas = null;
     [Tooltip("Question canvas")]
-    [SerializeField] private Canvas _questionCanvas= null;
+    [SerializeField] private QuestionManager _questionCanvas= null;
     [Tooltip("End canvas")]
-    [SerializeField] private Canvas _endCanvas = null;
+    [SerializeField] private EndGameController _endCanvas = null;
+
+    private float _ratio = 0f;
 
     private AudioController _audioController = null;
 
@@ -36,6 +40,7 @@ public class AppLogic : MonoBehaviour
 
     private void OnEnable()
     {
+        Addaptive.OnSideUpdate.AddListener(RatioSaved);
         GameMenu.OnStartGame.AddListener(StartingQuiz);
         QuestionManager.OnEndedQuiz.AddListener(EndedQuiz);
     }
@@ -47,6 +52,8 @@ public class AppLogic : MonoBehaviour
     public void QuizRestart()
     {
         _questionCanvas.GetComponent<QuestionManager>().QuizRestart();
+
+        OnStartMenu();
     }
 
     public void OnStartMenu()
@@ -78,6 +85,7 @@ public class AppLogic : MonoBehaviour
         _endCanvas.gameObject.SetActive(false);
 
         OnStartQuiz?.Invoke();
+        OnSideUpdate?.Invoke(_ratio);
     }
 
     ///конце викторины
@@ -87,14 +95,15 @@ public class AppLogic : MonoBehaviour
         _questionCanvas.gameObject.SetActive(false);
         _endCanvas.gameObject.SetActive(true);
 
-        if (rightAnswer < _correntAnswerValue)
-        {
+        if (rightAnswer < _correntAnswerValue) OnLoseGame?.Invoke(rightAnswer);
+        else if (rightAnswer >= _correntAnswerValue) OnWinGame?.Invoke(rightAnswer);
+    }
 
-        }
-        else if (rightAnswer >= _correntAnswerValue)
-        { 
+    private void RatioSaved(float ratio)
+    {
+        _ratio = ratio;
 
-        }
+        OnSideUpdate?.Invoke(_ratio);
     }
 
     #endregion

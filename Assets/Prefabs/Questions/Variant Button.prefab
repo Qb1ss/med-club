@@ -280,6 +280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _optionText: 
+  _exitAnimationTime: 1
   _defaultOptionSprite: {fileID: -2946242008345304248, guid: bdbf2b5806b4cf74c9fe871cbf99a03a, type: 3}
   _cartBackSprite: {fileID: 8213326372612031864, guid: d062e977cca488c409078ae7da668ef8, type: 3}
   _incorrectOptionSprite: {fileID: -7005935526116348739, guid: bdbf2b5806b4cf74c9fe871cbf99a03a, type: 3}
@@ -338,7 +339,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -30, y: -290}
+  m_SizeDelta: {x: -56.482, y: -301.6521}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1030585746626493221
 CanvasRenderer:
@@ -395,12 +396,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 31.7
+  m_fontSize: 28.35
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 25
-  m_fontSizeMax: 40
+  m_fontSizeMax: 80
   m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512

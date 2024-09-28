@@ -4,7 +4,13 @@ using UnityEngine.UI;
 [RequireComponent(typeof(RectTransform), typeof(GridLayoutGroup))]
 public class CartGridAddaptiving : MonoBehaviour
 {
+    #region CONSTS
+
     private const float CART_SCALE_MULTYPLY = 0.7f;
+
+    #endregion
+
+    private float _ratio = 0f;
 
     private RectTransform _rectTransform = null;
     private GridLayoutGroup _gridLayoutGroup = null;
@@ -23,25 +29,22 @@ public class CartGridAddaptiving : MonoBehaviour
 
     private void Start()
     {
-        
-    }
-
-    private void Update()
-    {
-        GridUpdate();
+        GridUpdate(_ratio);
     }
 
     private void OnEnable()
     {
-        AppLogic.OnUpdateSide.AddListener(GridUpdate);
+        AppLogic.OnSideUpdate.AddListener(GridUpdate);
     }
 
     #endregion
 
     #region PRIVATE METHODS
 
-    private void GridUpdate()
+    private void GridUpdate(float ratio)
     {
+        _ratio = ratio;
+
         float newYPosition = _rectTransform.rect.size.y / 2 - _gridLayoutGroup.spacing.y;
         float newXPosition = newYPosition * CART_SCALE_MULTYPLY;
 
