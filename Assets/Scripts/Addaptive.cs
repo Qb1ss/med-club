@@ -5,13 +5,15 @@ public class Addaptive : MonoBehaviour
 {
     #region CONSTS
 
+    private const float MIN_MENU_RATIO = 100f;
+    private const float MAX_MENU_RATIO = 150f;
+
+    private const float MIN_QUIZ_RATIO = 100f;
+
     private const float MIN_BACKGROUND_RATIO = 55f;
     private const float SMALL_BACKGROUND_RATIO = 100f;
     private const float MIDDLE_BACKGROUND_RATIO = 150f;
     private const float MAX_BACKGROUND_RATIO = 180f;
-
-    private const float MIN_MENU_RATIO = 100f;
-    private const float MAX_MENU_RATIO = 150f;
 
     #endregion
 
@@ -23,6 +25,12 @@ public class Addaptive : MonoBehaviour
     [SerializeField] private GameObject _middleMenu = null;
     [Tooltip("Max menu")]
     [SerializeField] private GameObject _maxMenu = null;
+
+    [Header("Quiz")]
+    [Tooltip("Min quiz")]
+    [SerializeField] private GameObject _minQuiz = null;
+    [Tooltip("Max quiz")]
+    [SerializeField] private GameObject _maxQuiz = null;
 
     [Header("Background")]
     [Tooltip("Min background")]
@@ -66,6 +74,7 @@ public class Addaptive : MonoBehaviour
 
         MenuAddaptiving(ratio);
         BackgroundAddaptiving(ratio);
+        QuizAddaptiving(ratio);
 
         Debug.Log($"Ratio = {ratio}");
 
@@ -93,6 +102,21 @@ public class Addaptive : MonoBehaviour
             _minMenu.gameObject.SetActive(false);
             _middleMenu.gameObject.SetActive(false);
             _maxMenu.gameObject.SetActive(true);
+        }
+    }
+
+    private void QuizAddaptiving(float ratio)
+    {
+        if (ratio <= MIN_QUIZ_RATIO)
+        {
+            _minQuiz.gameObject.SetActive(true);
+            _maxQuiz.gameObject.SetActive(false);
+        }
+
+        if (ratio > MIN_QUIZ_RATIO)
+        {
+            _minQuiz.gameObject.SetActive(false);
+            _maxQuiz.gameObject.SetActive(true);
         }
     }
 

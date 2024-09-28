@@ -73,8 +73,8 @@ public class AppLogic : MonoBehaviour
     {
         _audioController.ButtonAudioSource.Play();
 
-        _questionCanvas.gameObject.SetActive(true);
         _menuCanvas.gameObject.SetActive(false);
+        _questionCanvas.gameObject.SetActive(true);
         _endCanvas.gameObject.SetActive(false);
 
         OnStartQuiz?.Invoke();
