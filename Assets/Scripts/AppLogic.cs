@@ -16,7 +16,6 @@ public class AppLogic : MonoBehaviour
     [Tooltip("Corrent answer value")]
     [SerializeField] private int _correntAnswerValue = 5;
 
-
     [Header("COMPONENTS")]
     [Tooltip("Menu canvas")]
     [SerializeField] private Canvas _menuCanvas = null;
@@ -24,11 +23,6 @@ public class AppLogic : MonoBehaviour
     [SerializeField] private Canvas _questionCanvas= null;
     [Tooltip("End canvas")]
     [SerializeField] private Canvas _endCanvas = null;
-    [Space(height: 10f)]
-
-    [Tooltip("Start quiz button")]
-    [SerializeField] private Button _startQuizButton = null;
-    [Space(height: 5f)]
 
     private AudioController _audioController = null;
 
@@ -41,13 +35,9 @@ public class AppLogic : MonoBehaviour
         _audioController = GetComponent<AudioController>();
     }
 
-    private void Start()
-    {
-        _startQuizButton.onClick.AddListener(() => StartingQuiz());
-    }
-
     private void OnEnable()
     {
+        GameMenu.OnStartGame.AddListener(StartingQuiz);
         QuestionManager.OnEndedQuiz.AddListener(EndedQuiz);
     }
 

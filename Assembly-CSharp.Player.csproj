@@ -65,13 +65,13 @@
     <Compile Include="Assets\Scripts\AppLogic.cs" />
     <Compile Include="Assets\Scripts\Quiz\QuestionManager.cs" />
     <Compile Include="Assets\Scripts\Quiz\OptionButton.cs" />
-    <Compile Include="Assets\Scripts\CanvasHelper.cs" />
     <Compile Include="Assets\Scripts\Animations\AnimationDeck.cs" />
     <Compile Include="Assets\Scripts\EndGameController.cs" />
     <Compile Include="Assets\Scripts\Animations\AnimationWhoosh.cs" />
     <Compile Include="Assets\Scripts\Quiz\Question.cs" />
     <Compile Include="Assets\Scripts\Addaptive.cs" />
     <Compile Include="Assets\Scripts\AudioController.cs" />
+    <Compile Include="Assets\Scripts\GameMenu.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
