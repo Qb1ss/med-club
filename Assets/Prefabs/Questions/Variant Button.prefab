@@ -71,7 +71,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2946242008345304248, guid: bdbf2b5806b4cf74c9fe871cbf99a03a, type: 3}
+  m_Sprite: {fileID: -1031227994315980981, guid: e1f31224915ac744eb6d9903afdda38b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -281,9 +281,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _optionText: 
   _exitAnimationTime: 1
-  _defaultOptionSprite: {fileID: -2946242008345304248, guid: bdbf2b5806b4cf74c9fe871cbf99a03a, type: 3}
-  _cartBackSprite: {fileID: 8213326372612031864, guid: d062e977cca488c409078ae7da668ef8, type: 3}
-  _incorrectOptionSprite: {fileID: -7005935526116348739, guid: bdbf2b5806b4cf74c9fe871cbf99a03a, type: 3}
+  _defaultOptionSprite: {fileID: -1031227994315980981, guid: e1f31224915ac744eb6d9903afdda38b, type: 3}
+  _cartBackSprite: {fileID: -1031227994315980981, guid: e1f31224915ac744eb6d9903afdda38b, type: 3}
+  _incorrectOptionSprite: {fileID: -7696325135057603917, guid: 17e24e29ee077564e8860c1df7866bbe, type: 3}
   _correctOptionColor: {r: 0.02745098, g: 0.49803922, b: 0.26666668, a: 1}
   _incorrectOptionColor: {r: 1, g: 0.64705884, b: 0.64705884, a: 1}
   _correctClip: {fileID: 8300000, guid: 515aacb332e986a42a74b5867b001d83, type: 3}

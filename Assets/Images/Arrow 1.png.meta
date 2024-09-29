@@ -3,8 +3,8 @@ guid: 5d6cb363baebf9640a481842ab43959a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3482916828136371870
-    second: Arrow 2_0
+      213: -3497705377561342267
+    second: Arrow 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,7 +126,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Arrow 2_0
+      name: Arrow 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -140,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e967c43e66ec55030800000000000000
-      internalID: 3482916828136371870
+      spriteID: 5ce8b71ad77a57fc0800000000000000
+      internalID: -3497705377561342267
       vertices: []
       indices: 
       edges: []
@@ -156,8 +156,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      Arrow 2_0: 3482916828136371870
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

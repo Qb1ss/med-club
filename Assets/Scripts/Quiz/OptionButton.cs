@@ -99,11 +99,6 @@ public class OptionButton : MonoBehaviour
         _optionDisplay.gameObject.SetActive(false);
     }
 
-    private void OnEnable()
-    {
-        //QuestionManager.OnExitAnimation.AddListener(ExitAnimation);
-    }
-
     #endregion
 
     #region PRIVATE METHODS
@@ -117,7 +112,8 @@ public class OptionButton : MonoBehaviour
             _audioSource.Play();
 
             _image.sprite = _incorrectOptionSprite;
-            _optionDisplay.color = _incorrectOptionColor;
+            _optionDisplay.gameObject.SetActive(false);
+            //_optionDisplay.color = _incorrectOptionColor;
 
             gameObject.GetComponent<RectTransform>().DOScale(1f, 0.1f);
 
