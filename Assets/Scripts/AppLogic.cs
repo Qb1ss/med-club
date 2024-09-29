@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -24,6 +25,8 @@ public class AppLogic : MonoBehaviour
     [SerializeField] private QuestionManager _questionCanvas= null;
     [Tooltip("End canvas")]
     [SerializeField] private EndGameController _endCanvas = null;
+    [Tooltip("Error canvas")]
+    [SerializeField] private ErrorController _errorCanvas = null;
 
     private float _ratio = 0f;
 
@@ -61,6 +64,7 @@ public class AppLogic : MonoBehaviour
         _menuCanvas.gameObject.SetActive(true);
         _questionCanvas.gameObject.SetActive(false);
         _endCanvas.gameObject.SetActive(false);
+        _errorCanvas.gameObject.SetActive(false);
     }
 
     #endregion
@@ -73,6 +77,7 @@ public class AppLogic : MonoBehaviour
         _menuCanvas.gameObject.SetActive(true);
         _questionCanvas.gameObject.SetActive(false);
         _endCanvas.gameObject.SetActive(false);
+        _errorCanvas.gameObject.SetActive(false);
     }
 
     ///начало викторины
@@ -83,6 +88,7 @@ public class AppLogic : MonoBehaviour
         _menuCanvas.gameObject.SetActive(false);
         _questionCanvas.gameObject.SetActive(true);
         _endCanvas.gameObject.SetActive(false);
+        _errorCanvas.gameObject.SetActive(false);
 
         OnStartQuiz?.Invoke();
         OnSideUpdate?.Invoke(_ratio);
@@ -94,14 +100,30 @@ public class AppLogic : MonoBehaviour
         _menuCanvas.gameObject.SetActive(false);
         _questionCanvas.gameObject.SetActive(false);
         _endCanvas.gameObject.SetActive(true);
+        _errorCanvas.gameObject.SetActive(false);
 
         if (rightAnswer < _correntAnswerValue) OnLoseGame?.Invoke(rightAnswer);
         else if (rightAnswer >= _correntAnswerValue) OnWinGame?.Invoke(rightAnswer);
     }
 
+    ///ошибка разрешения
+    private void RatioError()
+    {
+        _errorCanvas.gameObject.SetActive(true);
+
+        _menuCanvas.gameObject.SetActive(false);
+        _questionCanvas.gameObject.SetActive(false);
+        _endCanvas.gameObject.SetActive(false);
+
+        Debug.Log("Error: please restart game");
+    }
+
+    ///сохранение и передача разрешения
     private void RatioSaved(float ratio)
     {
         _ratio = ratio;
+        
+        if (_questionCanvas.gameObject.activeInHierarchy == true) RatioError();
 
         OnSideUpdate?.Invoke(_ratio);
     }

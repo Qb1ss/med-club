@@ -1,3 +1,4 @@
+using System.Net.NetworkInformation;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -60,8 +61,21 @@ public class Addaptive : MonoBehaviour
     [Tooltip("Max background")]
     [SerializeField] private GameObject _maxBackground = null;
 
+    [Header("Error")]
+    [Tooltip("Min background")]
+    [SerializeField] private GameObject _minError = null;
+    [Tooltip("Small background")]
+    [SerializeField] private GameObject _smallError = null;
+    [Tooltip("Middle background")]
+    [SerializeField] private GameObject _middleError = null;
+    [Tooltip("Max background")]
+    [SerializeField] private GameObject _maxError = null;
+
     [Space(height: 5f)]
+    [Tooltip("Canvas background")]
     [SerializeField] private Canvas _backgroundCanvas = null;
+    [Tooltip("Canvas error")]
+    [SerializeField] private Canvas _errorCanvas = null;
 
     private float _lastRatio = 0f;
 
@@ -94,6 +108,7 @@ public class Addaptive : MonoBehaviour
         QuizAddaptiving(ratio);
         EndGameMenuAddaptiving(ratio);
         BackgroundAddaptiving(ratio);
+        ErrorAddaptiving(ratio);
 
         OnSideUpdate?.Invoke(ratio);
 
@@ -205,6 +220,49 @@ public class Addaptive : MonoBehaviour
             _smallBackground.gameObject.SetActive(false);
             _middleBackground.gameObject.SetActive(false);
             _maxBackground.gameObject.SetActive(true);
+        }
+    }
+
+    private void ErrorAddaptiving(float ratio)
+    {
+        if (ratio <= MIN_BACKGROUND_RATIO)
+        {
+            _errorCanvas.GetComponent<CanvasScaler>().matchWidthOrHeight = 1f;
+
+            _minError.gameObject.SetActive(true);
+            _smallError.gameObject.SetActive(false);
+            _middleError.gameObject.SetActive(false);
+            _maxError.gameObject.SetActive(false);
+        }
+
+        if (ratio > MIN_BACKGROUND_RATIO && ratio <= SMALL_BACKGROUND_RATIO)
+        {
+            _errorCanvas.GetComponent<CanvasScaler>().matchWidthOrHeight = 0f;
+
+            _minError.gameObject.SetActive(false);
+            _smallError.gameObject.SetActive(true);
+            _middleError.gameObject.SetActive(false);
+            _maxError.gameObject.SetActive(false);
+        }
+
+        if (ratio > SMALL_BACKGROUND_RATIO && ratio <= MAX_BACKGROUND_RATIO)
+        {
+            _errorCanvas.GetComponent<CanvasScaler>().matchWidthOrHeight = 1f;
+
+            _minError.gameObject.SetActive(false);
+            _smallError.gameObject.SetActive(false);
+            _middleError.gameObject.SetActive(true);
+            _maxError.gameObject.SetActive(false);
+        }
+
+        if (ratio > MAX_BACKGROUND_RATIO)
+        {
+            _errorCanvas.GetComponent<CanvasScaler>().matchWidthOrHeight = 0f;
+
+            _minError.gameObject.SetActive(false);
+            _smallError.gameObject.SetActive(false);
+            _middleError.gameObject.SetActive(false);
+            _maxError.gameObject.SetActive(true);
         }
     }
 
