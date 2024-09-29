@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ErrorController : MonoBehaviour
 {
@@ -14,6 +15,12 @@ public class ErrorController : MonoBehaviour
     public void LinkToRestartSite()
     {
         Application.OpenURL(LINT_TO_SITE);
+
+        #if UNITY_EDITOR
+
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+        #endif
     }
 
     #endregion
