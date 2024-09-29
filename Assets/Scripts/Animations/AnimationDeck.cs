@@ -104,7 +104,7 @@ public class AnimationDeck : MonoBehaviour
         _audioSource.Play();
 
         cartBack.rectTransform.DOMove(_targetPosition.position, _movingTime);
-        cartBack.rectTransform.DOScale(MAX_SCALE, _movingTime);
+        cartBack.rectTransform.DOSizeDelta(_targetPosition.rect.size, _movingTime);
 
         yield return new WaitForSeconds(_movingTime + (WAITING_TIME - _delayTime));
 

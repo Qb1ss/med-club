@@ -14,8 +14,8 @@ public class Addaptive : MonoBehaviour
     private const float MIN_END_MENU_RATIO = 90f;
     private const float MAX_END_MENU_RATIO = 150f;
 
-    private const float MIN_BACKGROUND_RATIO = 55f;
-    private const float SMALL_BACKGROUND_RATIO = 100f;
+    private const float MIN_BACKGROUND_RATIO = 75f; ///v1 = 55 | 
+    private const float SMALL_BACKGROUND_RATIO = 100f; 
     private const float MIDDLE_BACKGROUND_RATIO = 150f;
     private const float MAX_BACKGROUND_RATIO = 180f;
 
