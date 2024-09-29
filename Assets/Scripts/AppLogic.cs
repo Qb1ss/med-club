@@ -41,6 +41,11 @@ public class AppLogic : MonoBehaviour
         _audioController = GetComponent<AudioController>();
     }
 
+    private void Start()
+    {
+        Screen.fullScreen = !Screen.fullScreen;
+    }
+
     private void OnEnable()
     {
         Addaptive.OnSideUpdate.AddListener(RatioSaved);
