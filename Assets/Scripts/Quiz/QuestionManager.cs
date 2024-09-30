@@ -141,7 +141,6 @@ public class QuestionManager : MonoBehaviour
         _questionText.text = _questions[_currentQuestion].QuestionText;
 
         StartCoroutine(QuestionUpdatingCoroutine());
-
     }
 
     ///очистка прошлого варианта
