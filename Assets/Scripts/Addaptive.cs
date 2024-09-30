@@ -101,19 +101,24 @@ public class Addaptive : MonoBehaviour
     {
         float ratio = (float)_camera.pixelWidth / (float)_camera.pixelHeight * 100;
 
-        if (_lastRatio == ratio) return;
+        if (_lastRatio == ratio)
+        {
+            return;
+        }
+        else
+        {
+            MenuAddaptiving(ratio);
+            QuizAddaptiving(ratio);
+            EndGameMenuAddaptiving(ratio);
+            BackgroundAddaptiving(ratio);
+            ErrorAddaptiving(ratio);
 
-        MenuAddaptiving(ratio);
-        QuizAddaptiving(ratio);
-        EndGameMenuAddaptiving(ratio);
-        BackgroundAddaptiving(ratio);
-        ErrorAddaptiving(ratio);
+            OnSideUpdate?.Invoke(ratio);
 
-        OnSideUpdate?.Invoke(ratio);
+            Debug.Log($"Ratio = {ratio}");
 
-        Debug.Log($"Ratio = {ratio}");
-
-        _lastRatio = ratio;
+            _lastRatio = ratio;
+        }
     }
 
     private void MenuAddaptiving(float ratio)

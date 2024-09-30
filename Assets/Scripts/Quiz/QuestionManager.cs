@@ -212,7 +212,10 @@ public class QuestionManager : MonoBehaviour
     ///случайная вариантов ответа
     private IEnumerator SetPositionCoroutine()
     {
-        if (_optionButtons.gameObject.activeInHierarchy == false) yield break;
+        if (_optionButtons.gameObject.activeInHierarchy == false)
+        {
+            yield break;
+        }
 
         for (int i = 0; i < _questions[_currentQuestion].OptionButton.Length; i++)
         {
