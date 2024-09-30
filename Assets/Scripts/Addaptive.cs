@@ -1,4 +1,3 @@
-using System.Net.NetworkInformation;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -15,10 +14,10 @@ public class Addaptive : MonoBehaviour
     private const float MIN_END_MENU_RATIO = 90f;
     private const float MAX_END_MENU_RATIO = 150f;
 
-    private const float MIN_BACKGROUND_RATIO = 75f; ///v1 = 55 | 
+    private const float MIN_BACKGROUND_RATIO = 57f; ///v1 = 55 | v2 = 75 | v3.1 = 57 | v3.2 = nn
     private const float SMALL_BACKGROUND_RATIO = 100f; 
     private const float MIDDLE_BACKGROUND_RATIO = 150f;
-    private const float MAX_BACKGROUND_RATIO = 180f;
+    private const float MAX_BACKGROUND_RATIO = 177f; ///v1-2 = 180 | v3.1 = 177 | v3.2 = nn
 
     #endregion
 
