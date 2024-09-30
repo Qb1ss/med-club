@@ -1,6 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum AddaptiveSide
+{
+    Horizontal = 0, 
+    Vertical = 1
+}
+
 [RequireComponent(typeof(RectTransform), typeof(GridLayoutGroup))]
 public class CartGridAddaptiving : MonoBehaviour
 {
@@ -9,6 +15,10 @@ public class CartGridAddaptiving : MonoBehaviour
     private const float CART_SCALE_MULTYPLY = 0.7f;
 
     #endregion
+
+    [Header("PARAMETERS")]
+    [Tooltip("Addaprive side")]
+    [SerializeField] private AddaptiveSide _addaptiveSide = AddaptiveSide.Horizontal;
 
     private float _ratio = 0f;
 
@@ -43,12 +53,15 @@ public class CartGridAddaptiving : MonoBehaviour
 
     private void GridUpdate(float ratio)
     {
-        _ratio = ratio;
+        if (_addaptiveSide == AddaptiveSide.Vertical)
+        {
+            _ratio = ratio;
 
-        float newYPosition = _rectTransform.rect.size.y / 2 - _gridLayoutGroup.spacing.y;
-        float newXPosition = newYPosition * CART_SCALE_MULTYPLY;
+            float newYPosition = _rectTransform.rect.size.y / 2 - _gridLayoutGroup.spacing.y;
+            float newXPosition = newYPosition * CART_SCALE_MULTYPLY;
 
-       _gridLayoutGroup.cellSize = new Vector2(newXPosition, newYPosition);
+            _gridLayoutGroup.cellSize = new Vector2(newXPosition, newYPosition);
+        }
     }
 
     #endregion
