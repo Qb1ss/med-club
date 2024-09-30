@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9a9e58bad64bffc46bdced96928fc70a
+guid: f29a2ab71b9239249a2203f8518db4b0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1539246881926464061
-    second: Doctor Smile_0
+      213: 5750393185874441312
+    second: Doctor Smile 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Doctor Smile_0
+      name: Doctor Smile 1_0
       rect:
         serializedVersion: 2
-        x: 168
-        y: 161
-        width: 459
-        height: 1098
+        x: 143
+        y: 180
+        width: 665
+        height: 1510
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d32cad242e08c5510800000000000000
-      internalID: 1539246881926464061
+      spriteID: 0647fdab2208dcf40800000000000000
+      internalID: 5750393185874441312
       vertices: []
       indices: 
       edges: []
@@ -149,14 +149,15 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Doctor Smile 1_0: 5750393185874441312
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
