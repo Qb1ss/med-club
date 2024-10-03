@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3864ec70b64dd604296b12eeec423235
+guid: 5ce0fba4c0e11474ca6b4bc0f74eac77
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -927020649735399941
-    second: Doctor Sad_0
+      213: 2528794319968904523
+    second: text-area_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,22 +126,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Doctor Sad_0
+      name: text-area_0
       rect:
         serializedVersion: 2
-        x: 312
-        y: 117
-        width: 488
-        height: 1717
+        x: 0
+        y: 0
+        width: 1692
+        height: 278
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 40, y: 40, z: 40, w: 40}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bf5d11171af8223f0800000000000000
-      internalID: -927020649735399941
+      spriteID: b45a5cf2905181320800000000000000
+      internalID: 2528794319968904523
       vertices: []
       indices: 
       edges: []
@@ -149,7 +149,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 0973cb2706bdd624fba1436630f5e506
     internalID: 0
     vertices: []
     indices: 
@@ -157,7 +157,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Doctor Sad_0: -927020649735399941
+      text-area_0: 2528794319968904523
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
