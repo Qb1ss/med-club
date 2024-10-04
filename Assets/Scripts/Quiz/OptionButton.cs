@@ -41,11 +41,6 @@ public class OptionButton : MonoBehaviour
     [SerializeField] private Sprite _incorrectOptionSprite = null;
     [Space(height: 5f)]
 
-    [Tooltip("Color of correct option")]
-    [SerializeField] private Color _correctOptionColor = Color.green;
-    [Tooltip("Color of incorrect option")]
-    [SerializeField] private Color _incorrectOptionColor = Color.red;
-
     [Tooltip("Correct audio clip")]
     [SerializeField] private AudioClip _correctClip = null;
     [Tooltip("Incorrect audio clip")]
@@ -113,7 +108,6 @@ public class OptionButton : MonoBehaviour
 
             _image.sprite = _incorrectOptionSprite;
             _optionDisplay.gameObject.SetActive(false);
-            //_optionDisplay.color = _incorrectOptionColor;
 
             gameObject.GetComponent<RectTransform>().DOScale(1f, 0.1f);
 
@@ -124,20 +118,9 @@ public class OptionButton : MonoBehaviour
             _audioSource.clip = _correctClip;
             _audioSource.outputAudioMixerGroup = _correctMixer;
             _audioSource.Play();
-
-            _optionDisplay.color = _correctOptionColor;
         }
 
         OnSetAnswer?.Invoke(_isRight);
-    }
-
-    private void ExitAnimation()
-    {
-        Color colorText = _optionDisplay.color;
-        Color colorImage = _image.color;
-
-        _optionDisplay.DOColor(new Color(colorText.r, colorText.g, colorText.b, 0f), _exitAnimationTime);
-        _image.DOColor(new Color(colorImage.r, colorImage.g, colorImage.b, 0f), _exitAnimationTime);
     }
 
     #endregion
