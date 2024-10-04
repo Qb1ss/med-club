@@ -94,8 +94,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6490646770829787767, guid: f3bdb6a4c9341144ea4b544f0f143f55, type: 3}
       propertyPath: _optionText
-      value: "\u043F\u0440\u0438\u043C\u0435\u0441\u044C \u043A\u0440\u043E\u0432\u0438
-        \u0432 \u0441\u0442\u0443\u043B\u0435"
+      value: "\u0421\u043E\u0441\u043A\u043E\u0431 \u043D\u0430 \u044D\u043D\u0442\u0435\u0440\u043E\u0431\u0438\u043E\u0437"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
