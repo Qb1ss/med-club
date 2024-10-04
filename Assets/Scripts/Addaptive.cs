@@ -2,6 +2,13 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
+public enum AppState
+{
+    Menu = 0, 
+    Quiz = 1, 
+    End = 2
+}
+
 public class Addaptive : MonoBehaviour
 {
     #region CONSTS
@@ -14,7 +21,7 @@ public class Addaptive : MonoBehaviour
     private const float MIN_END_MENU_RATIO = 90f;
     private const float MAX_END_MENU_RATIO = 150f;
 
-    private const float MIN_BACKGROUND_RATIO = 57f; ///v1 = 55 | v2 = 75 | v3.1 = 57 | v3.2 = nn
+    private const float MIN_BACKGROUND_RATIO = 75f; ///v1 = 55 | v2 = 75 | v3.1 = 57 | v3.2 = 75
     private const float SMALL_BACKGROUND_RATIO = 100f; 
     private const float MIDDLE_BACKGROUND_RATIO = 150f;
     private const float MAX_BACKGROUND_RATIO = 177f; ///v1-2 = 180 | v3.1 = 177 | v3.2 = nn
@@ -69,8 +76,27 @@ public class Addaptive : MonoBehaviour
     [SerializeField] private GameObject _middleError = null;
     [Tooltip("Max background")]
     [SerializeField] private GameObject _maxError = null;
-
     [Space(height: 5f)]
+
+    [Header("Background Image")]
+    [Tooltip("Menu sprite")]
+    [SerializeField] private Sprite _menuSprite = null;
+    [Tooltip("Menu sprite rotate")]
+    [SerializeField] private Sprite _menuRotateSprite = null;
+    [Space(height: 3f)]
+
+    [Tooltip("Quiz sprite")]
+    [SerializeField] private Sprite _quizSprite = null;
+    [Tooltip("Quiz sprite rotate")]
+    [SerializeField] private Sprite _quizRotateSprite = null;
+    [Space(height: 3f)]
+
+    [Tooltip("End sprite")]
+    [SerializeField] private Sprite _endSprite = null;
+    [Tooltip("End sprite rotate")]
+    [SerializeField] private Sprite _endRotateSprite = null;
+
+    [Header("Canvases")]
     [Tooltip("Canvas background")]
     [SerializeField] private Canvas _backgroundCanvas = null;
     [Tooltip("Canvas error")]
@@ -91,6 +117,35 @@ public class Addaptive : MonoBehaviour
     private void Update()
     {
         AddaptiveApp();
+    }
+
+    #endregion
+
+    #region PUBLIC METHODS
+
+    public void ImageBackgroundChange(AppState appState)
+    {
+        if (appState == AppState.Menu)
+        {
+            _minBackground.GetComponent<Image>().sprite = _menuRotateSprite;
+            _smallBackground.GetComponent<Image>().sprite = _menuRotateSprite;
+            _middleBackground.GetComponent<Image>().sprite = _menuSprite;
+            _maxBackground.GetComponent<Image>().sprite = _menuSprite;
+        }
+        else if (appState == AppState.Quiz)
+        {
+            _minBackground.GetComponent<Image>().sprite = _quizRotateSprite;
+            _smallBackground.GetComponent<Image>().sprite = _quizRotateSprite;
+            _middleBackground.GetComponent<Image>().sprite = _quizSprite;
+            _maxBackground.GetComponent<Image>().sprite = _quizSprite;
+        }
+        else if (appState == AppState.End)
+        {
+            _minBackground.GetComponent<Image>().sprite = _endRotateSprite;
+            _smallBackground.GetComponent<Image>().sprite = _endRotateSprite;
+            _middleBackground.GetComponent<Image>().sprite = _endSprite;
+            _maxBackground.GetComponent<Image>().sprite = _endSprite;
+        }
     }
 
     #endregion

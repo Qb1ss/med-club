@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -27,6 +26,12 @@ public class AppLogic : MonoBehaviour
     [SerializeField] private EndGameController _endCanvas = null;
     [Tooltip("Error canvas")]
     [SerializeField] private ErrorController _errorCanvas = null;
+    [Space(height: 5f)]
+
+    [Tooltip("Addaptive script")]
+    [SerializeField] private Addaptive _addaptive = null;
+
+    private AppState _appState = AppState.Menu;
 
     private float _ratio = 0f;
 
@@ -34,11 +39,13 @@ public class AppLogic : MonoBehaviour
 
 
     #region UNITY
+
     private void Awake()
     {
         StartingApp();
 
         _audioController = GetComponent<AudioController>();
+        _addaptive = GetComponent<Addaptive>();
     }
 
     private void Start()
@@ -70,6 +77,8 @@ public class AppLogic : MonoBehaviour
         _questionCanvas.gameObject.SetActive(false);
         _endCanvas.gameObject.SetActive(false);
         _errorCanvas.gameObject.SetActive(false);
+
+        _appState = AppState.Menu;
     }
 
     #endregion
@@ -83,6 +92,10 @@ public class AppLogic : MonoBehaviour
         _questionCanvas.gameObject.SetActive(false);
         _endCanvas.gameObject.SetActive(false);
         _errorCanvas.gameObject.SetActive(false);
+
+        _appState = AppState.Menu;
+
+        _addaptive.ImageBackgroundChange(_appState);
     }
 
     ///начало викторины
@@ -95,6 +108,10 @@ public class AppLogic : MonoBehaviour
         _endCanvas.gameObject.SetActive(false);
         _errorCanvas.gameObject.SetActive(false);
 
+        _appState = AppState.Quiz;
+
+        _addaptive.ImageBackgroundChange(_appState);
+
         OnStartQuiz?.Invoke();
         OnSideUpdate?.Invoke(_ratio);
     }
@@ -106,6 +123,10 @@ public class AppLogic : MonoBehaviour
         _questionCanvas.gameObject.SetActive(false);
         _endCanvas.gameObject.SetActive(true);
         _errorCanvas.gameObject.SetActive(false);
+
+        _appState = AppState.End;
+
+        _addaptive.ImageBackgroundChange(_appState);
 
         if (rightAnswer < _correntAnswerValue) OnLoseGame?.Invoke(rightAnswer);
         else if (rightAnswer >= _correntAnswerValue) OnWinGame?.Invoke(rightAnswer);

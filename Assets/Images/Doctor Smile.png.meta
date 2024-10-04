@@ -129,12 +129,12 @@ TextureImporter:
       name: Doctor Smile 1_0
       rect:
         serializedVersion: 2
-        x: 143
-        y: 180
-        width: 665
-        height: 1510
+        x: 300
+        y: 192
+        width: 520
+        height: 1578
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
