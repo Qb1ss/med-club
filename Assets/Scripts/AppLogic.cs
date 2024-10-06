@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(AudioController))]
 public class AppLogic : MonoBehaviour
@@ -66,9 +67,7 @@ public class AppLogic : MonoBehaviour
 
     public void QuizRestart()
     {
-        _questionCanvas.GetComponent<QuestionManager>().QuizRestart();
-
-        OnStartMenu();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void OnStartMenu()

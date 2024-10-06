@@ -14,13 +14,9 @@ public class ErrorController : MonoBehaviour
 
     public void LinkToRestartSite()
     {
-        Application.OpenURL(LINT_TO_SITE);
+        // Application.OpenURL(LINT_TO_SITE);
 
-        #if UNITY_EDITOR
-
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-
-        #endif
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     #endregion
