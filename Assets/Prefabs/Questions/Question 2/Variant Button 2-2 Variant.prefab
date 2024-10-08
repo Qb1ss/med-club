@@ -97,6 +97,10 @@ PrefabInstance:
       value: "\u0410\u043D\u0430\u043B\u0438\u0437 \u043C\u043E\u0447\u0438 \u043F\u043E
         \u0417\u0438\u043C\u043D\u0438\u0446\u043A\u043E\u043C\u0443"
       objectReference: {fileID: 0}
+    - target: {fileID: 6490646770829787767, guid: f3bdb6a4c9341144ea4b544f0f143f55, type: 3}
+      propertyPath: _optionImage
+      value: 
+      objectReference: {fileID: -3267501778394122946, guid: d56f9e60c0dae52428d74a3786f0850c, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

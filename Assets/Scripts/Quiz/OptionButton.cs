@@ -25,16 +25,14 @@ public class OptionButton : MonoBehaviour
     #endregion
 
     [Header("PARAMETERS")]
-    [Tooltip("Option")]
-    [SerializeField] private string _optionText = "";
+    [Tooltip("Image of  option")]
+    [SerializeField] private Sprite _optionImage = null;
     [Space(height: 5f)]
 
     [Tooltip("Exti animation time")]
     [SerializeField] private float _exitAnimationTime = 1f;
     [Space(height: 5f)]
 
-    [Tooltip("Image of default option")]
-    [SerializeField] private Sprite _defaultOptionSprite = null;
     [Tooltip("Image of cart back")]
     [SerializeField] private Sprite _cartBackSprite = null;
     [Tooltip("Image of incorrect option")]
@@ -51,25 +49,13 @@ public class OptionButton : MonoBehaviour
     [SerializeField] private AudioMixerGroup _incorrectMixer = null;
     [Space(height: 5f)]
 
-    [Header("COMPONENTS")]
-    [Tooltip("Option display")]
-    [SerializeField] private TextMeshProUGUI _optionDisplay = null;
-
+    [Tooltip("It is right option?")]
     [SerializeField] private bool _isRight = false;
 
     private Button _button = null;
     private Image _image = null;
     private AudioSource _audioSource = null;
     private RectTransform _rectTransform = null;
-
-    #region PUBLIC FIELDS
-
-    public string OptionText { get => _optionText; set => _optionText = value; }
-    public TextMeshProUGUI ÎptionDisplay { get => _optionDisplay; set => _optionDisplay = value; }
-
-    public bool IsRight { get => _isRight; set => _isRight = value; }
-
-    #endregion
 
 
     #region UNITY
@@ -84,14 +70,11 @@ public class OptionButton : MonoBehaviour
 
     private void Start()
     {
-        _optionDisplay.text = $"{_optionText}";
-
         StartCoroutine(FlipAnimationCoroutine());
 
         _button.onClick.AddListener(() => SettingAnswer());
 
         _image.sprite = _cartBackSprite;
-        _optionDisplay.gameObject.SetActive(false);
     }
 
     #endregion
@@ -107,7 +90,6 @@ public class OptionButton : MonoBehaviour
             _audioSource.Play();
 
             _image.sprite = _incorrectOptionSprite;
-            _optionDisplay.gameObject.SetActive(false);
 
             gameObject.GetComponent<RectTransform>().DOScale(1f, 0.1f);
 
@@ -137,8 +119,7 @@ public class OptionButton : MonoBehaviour
 
         yield return new WaitForSeconds(stepAnimationTime);
 
-        _image.sprite = _defaultOptionSprite;
-        _optionDisplay.gameObject.SetActive(true);
+        _image.sprite = _optionImage;
         _button.interactable = true;
 
         _rectTransform.DORotate(new Vector3(0f, 0f, 0f), stepAnimationTime);
