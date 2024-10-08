@@ -4,7 +4,7 @@ public class EndGameController : MonoBehaviour
 {
     #region CONTST
 
-    private const string LINK_TO_SITE = "https://pharmznanie.ru/";
+    private const string LINK_TO_SITE = "https://disk.yandex.ru/d/23GpBN_vWBjeQA";
 
     #endregion
 
