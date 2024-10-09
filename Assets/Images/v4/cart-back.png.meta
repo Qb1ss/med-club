@@ -5,6 +5,39 @@ TextureImporter:
   - first:
       213: -7301364224977939724
     second: cart-back_0
+  - first:
+      213: 7258894695186076447
+    second: cart-back_1
+  - first:
+      213: -4082570732102564082
+    second: cart-back_2
+  - first:
+      213: 4130303959596196198
+    second: cart-back_3
+  - first:
+      213: 8258535469953874898
+    second: cart-back_4
+  - first:
+      213: 5165187381891516147
+    second: cart-back_5
+  - first:
+      213: 8570190912366857235
+    second: cart-back_6
+  - first:
+      213: -5812667756387679013
+    second: cart-back_7
+  - first:
+      213: -5974198611258781007
+    second: cart-back_8
+  - first:
+      213: -2802142328040620726
+    second: cart-back_9
+  - first:
+      213: 3322290093613213538
+    second: cart-back_10
+  - first:
+      213: 1591606511654625465
+    second: cart-back_11
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -72,10 +105,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -129,13 +162,13 @@ TextureImporter:
       name: cart-back_0
       rect:
         serializedVersion: 2
-        x: 45
-        y: 100
-        width: 1113
-        height: 1560
+        x: 25
+        y: 51
+        width: 543
+        height: 769
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 1, y: 0, z: 0, w: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
@@ -149,7 +182,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 586369e3270a2e54381144a0ed6777ca
+    spriteID: 8a40ff3099396ba4a88a7ee72bf2e489
     internalID: 0
     vertices: []
     indices: 
