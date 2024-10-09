@@ -96,6 +96,10 @@ PrefabInstance:
       propertyPath: _optionText
       value: "\u041C\u0435\u0442\u0444\u043E\u0440\u043C\u0438\u043D"
       objectReference: {fileID: 0}
+    - target: {fileID: 6490646770829787767, guid: f3bdb6a4c9341144ea4b544f0f143f55, type: 3}
+      propertyPath: _optionImage
+      value: 
+      objectReference: {fileID: 4713787271227177263, guid: 15b9ff276acb9284ca98318ebb4c8bf9, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
