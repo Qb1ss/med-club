@@ -1420,6 +1420,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1353226561}
+        m_TargetAssemblyTypeName: YandexMetrika, Assembly-CSharp
+        m_MethodName: GameStatistic
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 816986121}
         m_TargetAssemblyTypeName: GameMenu, Assembly-CSharp
         m_MethodName: GameStarting
@@ -5308,6 +5320,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1353226561}
+        m_TargetAssemblyTypeName: YandexMetrika, Assembly-CSharp
+        m_MethodName: GameStatistic
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 816986121}
         m_TargetAssemblyTypeName: GameMenu, Assembly-CSharp
         m_MethodName: GameStarting
@@ -11112,6 +11136,7 @@ GameObject:
   - component: {fileID: 1353226554}
   - component: {fileID: 1353226560}
   - component: {fileID: 1353226556}
+  - component: {fileID: 1353226561}
   - component: {fileID: 1353226558}
   - component: {fileID: 1353226557}
   - component: {fileID: 1353226559}
@@ -11497,6 +11522,18 @@ MonoBehaviour:
   _endRotateSprite: {fileID: -1063873543888175237, guid: b148b7aba4978da4db121bd21566e826, type: 3}
   _backgroundCanvas: {fileID: 730021405}
   _errorCanvas: {fileID: 1679760610}
+--- !u!114 &1353226561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353226553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ac6fd756a80bf9408fb114be9e4e0e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1373936086
 GameObject:
   m_ObjectHideFlags: 0
@@ -12281,6 +12318,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1353226561}
+        m_TargetAssemblyTypeName: YandexMetrika, Assembly-CSharp
+        m_MethodName: GameStatistic
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 816986121}
         m_TargetAssemblyTypeName: GameMenu, Assembly-CSharp
         m_MethodName: GameStarting
