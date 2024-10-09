@@ -1,10 +1,18 @@
 using UnityEngine;
 
+
+public enum Link
+{
+    material = 0,
+    site = 1
+}
+
 public class EndGameController : MonoBehaviour
 {
     #region CONTST
 
-    private const string LINK_TO_SITE = "https://disk.yandex.ru/d/23GpBN_vWBjeQA";
+    private const string LINK_TO_SITE = "https://pro-srk.ru/?utm_source=busco&utm_medium=game&utm_campaign=all";
+    private const string LINK_TO_MATERIAL = "https://disk.yandex.ru/d/23GpBN_vWBjeQA";
 
     #endregion
 
@@ -52,6 +60,13 @@ public class EndGameController : MonoBehaviour
         if (_audioController != null) _audioController.ButtonAudioSource.Play();
 
         Application.OpenURL(LINK_TO_SITE);
+    }
+
+    public void LinkToMaterial()
+    {
+        if (_audioController != null) _audioController.ButtonAudioSource.Play();
+
+        Application.OpenURL(LINK_TO_MATERIAL);
     }
 
     #endregion

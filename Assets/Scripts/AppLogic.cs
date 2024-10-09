@@ -5,6 +5,12 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(AudioController))]
 public class AppLogic : MonoBehaviour
 {
+    #region CONSTS
+
+    private const string LINK_TO_SITE = "https://pro-srk.ru/?utm_source=busco&utm_medium=game&utm_campaign=all";
+
+    #endregion
+
     #region EVENTS
 
     public static UnityEvent OnStartQuiz = new UnityEvent();
@@ -67,6 +73,8 @@ public class AppLogic : MonoBehaviour
 
     public void QuizRestart()
     {
+        Application.OpenURL(LINK_TO_SITE);
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
