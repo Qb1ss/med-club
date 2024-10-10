@@ -47,7 +47,14 @@ public class QuestionManager : MonoBehaviour
 
     [Tooltip("Audio controller")]
     [SerializeField] private AudioController _audioController = null;
-    
+    [Space(height: 10f)]
+
+    [Tooltip("Progress bar")]
+    [SerializeField] private Slider _progressBarSlider = null;
+
+    [Tooltip("Progress bar animation time")]
+    [SerializeField] [Range(0.1f, 1f)] private float _sliderAnimationTime = 0.5f;
+
     private TextMeshProUGUI _questionText = null;
     private GridLayoutGroup _optionButtons = null;
 
@@ -66,6 +73,9 @@ public class QuestionManager : MonoBehaviour
     private void Start()
     {
         _currentQuestion = 0;
+
+        _progressBarSlider.value = 0f;
+        _progressBarSlider.maxValue = _questions.Length;
 
         OptionButton.OnSetAnswer.AddListener(SetAnswer);
     }
@@ -159,6 +169,8 @@ public class QuestionManager : MonoBehaviour
     ///проверка правильности ответа
     private void SetAnswer(bool isRight)
     {
+        _progressBarSlider.DOValue(_currentQuestion + 1, _sliderAnimationTime);
+
         if (isRight == true)
         {
             if (_attempt == 0) _rightAnswer++;
