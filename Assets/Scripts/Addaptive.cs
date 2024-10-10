@@ -303,6 +303,8 @@ public class Addaptive : MonoBehaviour
 
     private void ErrorAddaptiving(float ratio)
     {
+        StopAllCoroutines();
+
         if (ratio <= MIN_ERROR_RATIO)
         {
             _errorCanvas.GetComponent<CanvasScaler>().matchWidthOrHeight = 1f;

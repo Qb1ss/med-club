@@ -119,7 +119,7 @@ public class QuestionManager : MonoBehaviour
         {
             _minQuestionDisplay.gameObject.SetActive(true);
             _maxQuestionDisplay.gameObject.SetActive(false);
-            
+
             newDisplay = _minQuestionDisplay;
 
             _minGrid.gameObject.SetActive(true);
@@ -152,7 +152,7 @@ public class QuestionManager : MonoBehaviour
 
         _questionText.text = _questions[_currentQuestion].QuestionText;
 
-        StartCoroutine(QuestionUpdatingCoroutine());
+        if (gameObject.activeInHierarchy == true) StartCoroutine(QuestionUpdatingCoroutine());
     }
 
     ///очистка прошлого варианта

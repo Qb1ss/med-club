@@ -13,6 +13,9 @@ public class OptionButton : MonoBehaviour
     #region CONSTS
 
     private const float ANIMATION_TIME = 1f;
+    private const float ENABLE_AUTO_SIZING = 70f;
+    private const float MAX_FONT_SIZE = 80f;
+    private const float MIN_FONT_SIZE = 120f;
 
     private const int STEP_COUNT = 2;
 
@@ -79,6 +82,8 @@ public class OptionButton : MonoBehaviour
         _optionDisplay.text = _option;
         _optionDisplay.gameObject.SetActive(false);
 
+        RatioChecking();
+
         StartCoroutine(FlipAnimationCoroutine());
 
         _button.onClick.AddListener(() => SettingAnswer());
@@ -89,6 +94,20 @@ public class OptionButton : MonoBehaviour
     #endregion
 
     #region PRIVATE METHODS
+
+    private void RatioChecking()
+    {
+        Camera camera = Camera.main;
+
+        float ratio = (float)camera.pixelWidth / (float)camera.pixelHeight * 100;
+
+        if (ratio <= ENABLE_AUTO_SIZING)
+        {
+            _optionDisplay.enableAutoSizing = true;
+            _optionDisplay.fontSizeMin = MIN_FONT_SIZE;
+            _optionDisplay.fontSizeMax = MAX_FONT_SIZE;
+        }
+    }
 
     private void SettingAnswer()
     {
