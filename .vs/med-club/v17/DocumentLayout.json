@@ -1,12 +1,71 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "E:\\Unity\\Projects\\med-club\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A7D668AD-76F0-0F7A-2178-243980C3210D}|Assembly-CSharp.csproj|e:\\unity\\projects\\med-club\\assets\\scripts\\quiz\\questionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7D668AD-76F0-0F7A-2178-243980C3210D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\quiz\\questionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7D668AD-76F0-0F7A-2178-243980C3210D}|Assembly-CSharp.csproj|e:\\unity\\projects\\med-club\\assets\\scripts\\addaptive.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7D668AD-76F0-0F7A-2178-243980C3210D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\addaptive.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7D668AD-76F0-0F7A-2178-243980C3210D}|Assembly-CSharp.csproj|e:\\unity\\projects\\med-club\\assets\\scripts\\quiz\\optionbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7D668AD-76F0-0F7A-2178-243980C3210D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\quiz\\optionbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "QuestionManager.cs",
+              "DocumentMoniker": "E:\\Unity\\Projects\\med-club\\Assets\\Scripts\\Quiz\\QuestionManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Quiz\\QuestionManager.cs",
+              "ToolTip": "E:\\Unity\\Projects\\med-club\\Assets\\Scripts\\Quiz\\QuestionManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Quiz\\QuestionManager.cs",
+              "ViewState": "AgIAAIUAAAAAAAAAAAAawJoAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-10T01:44:19.293Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Addaptive.cs",
+              "DocumentMoniker": "E:\\Unity\\Projects\\med-club\\Assets\\Scripts\\Addaptive.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Addaptive.cs",
+              "ToolTip": "E:\\Unity\\Projects\\med-club\\Assets\\Scripts\\Addaptive.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Addaptive.cs",
+              "ViewState": "AgIAAHEAAAAAAAAAAAAIwLAAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-10T01:35:46.125Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "OptionButton.cs",
+              "DocumentMoniker": "E:\\Unity\\Projects\\med-club\\Assets\\Scripts\\Quiz\\OptionButton.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Quiz\\OptionButton.cs",
+              "ToolTip": "E:\\Unity\\Projects\\med-club\\Assets\\Scripts\\Quiz\\OptionButton.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Quiz\\OptionButton.cs",
+              "ViewState": "AgIAAE0AAAAAAAAAAAAgwIgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-10T01:26:45.57Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
