@@ -77,6 +77,8 @@ public class QuestionManager : MonoBehaviour
         _progressBarSlider.value = 0f;
         _progressBarSlider.maxValue = _questions.Length;
 
+        _progressBarSlider.DOValue(_currentQuestion + 1, _sliderAnimationTime);
+
         OptionButton.OnSetAnswer.AddListener(SetAnswer);
     }
 
@@ -169,30 +171,32 @@ public class QuestionManager : MonoBehaviour
     ///проверка правильности ответа
     private void SetAnswer(bool isRight)
     {
-        _progressBarSlider.DOValue(_currentQuestion + 1, _sliderAnimationTime);
-
         if (isRight == true)
         {
             if (_attempt == 0) _rightAnswer++;
 
-            OnExitAnimation?.Invoke();
-
             _audioController.CorrectAudioSource.Play();
+        }
+        else
+        {
+            _audioController.IncorrectAudioSource.Play();
 
-            QuestionValueCheching();
+            _attempt++;
         }
 
-        _attempt++;
+        OnExitAnimation?.Invoke();
+
+        QuestionValueCheching();
     }
 
     ///проверка количества вопросов
     private void QuestionValueCheching()
     {
+        _progressBarSlider.DOValue(_currentQuestion + 2, _sliderAnimationTime);
+
         if (_currentQuestion < _questions.Length - 1)
         {
-            _currentQuestion++;
-
-            QuestionUpdating();
+            _currentQuestion++; 
         }
         else 
         {
@@ -201,6 +205,8 @@ public class QuestionManager : MonoBehaviour
             _currentQuestion = 0;
             _rightAnswer = 0;
         }
+
+        QuestionUpdating();
     }
 
     #endregion
