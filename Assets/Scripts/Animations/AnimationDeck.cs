@@ -70,8 +70,6 @@ public class AnimationDeck : MonoBehaviour
     }
     private void StartAnimation(bool answer)
     {
-        if (answer == false) return;
-
         StartCoroutine(AnimationCoroutine());
     }
 
