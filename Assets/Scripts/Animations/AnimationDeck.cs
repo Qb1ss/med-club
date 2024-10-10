@@ -11,6 +11,7 @@ public class AnimationDeck : MonoBehaviour
 
     private const float WAITING_TIME = 2f;
     private const float MAX_SCALE = 2f;
+    private const float ANIMATION_ROTATE_TIME = 1f;
 
     #endregion
 
@@ -89,6 +90,8 @@ public class AnimationDeck : MonoBehaviour
 
     private IEnumerator AnimationCoroutine()
     {
+        yield return new WaitForSeconds(ANIMATION_ROTATE_TIME);
+
         _currentQustion++;
 
         yield return new WaitForSeconds(_delayTime);

@@ -10,7 +10,8 @@ public class QuestionManager : MonoBehaviour
 {
     #region CONSTS
 
-    private const float ANIMATION_TIME = 3f;
+    private const float ANIMATION_TIME = 3f; 
+    private const float ANIMATION_ROTATE_TIME = 1f;
 
     private const float MIN_QUIZ_RATIO = 100f;
 
@@ -72,6 +73,8 @@ public class QuestionManager : MonoBehaviour
 
     private void Start()
     {
+        _questionText.text = _questions[_currentQuestion].QuestionText;
+
         _currentQuestion = 0;
 
         _progressBarSlider.value = 0f;
@@ -148,10 +151,6 @@ public class QuestionManager : MonoBehaviour
     ///запуск обновление вопроса
     private void QuestionUpdating()
     {
-        CleaningTheGrid();
-
-        _questionText.text = _questions[_currentQuestion].QuestionText;
-
         if (gameObject.activeInHierarchy == true) StartCoroutine(QuestionUpdatingCoroutine());
     }
 
@@ -216,12 +215,18 @@ public class QuestionManager : MonoBehaviour
     ///обновление вопроса
     private IEnumerator QuestionUpdatingCoroutine()
     {
+        yield return new WaitForSeconds(ANIMATION_ROTATE_TIME);
+
+        CleaningTheGrid();
+
+        _questionText.text = _questions[_currentQuestion].QuestionText;
+
         yield return new WaitForSeconds(ANIMATION_TIME);
 
         _attempt = 0;
 
         StartCoroutine(SetPositionCoroutine());
-        StopCoroutine(SetPositionCoroutine());
+        //StopCoroutine(SetPositionCoroutine());
 
         yield break;
     }

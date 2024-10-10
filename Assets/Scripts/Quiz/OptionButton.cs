@@ -13,6 +13,7 @@ public class OptionButton : MonoBehaviour
     #region CONSTS
 
     private const float ANIMATION_TIME = 1f;
+    private const float ANSWER_ANIMATION_TIME = 0.5f;
     private const float ENABLE_AUTO_SIZING = 70f;
     private const float MAX_FONT_SIZE = 80f;
     private const float MIN_FONT_SIZE = 120f;
@@ -40,6 +41,8 @@ public class OptionButton : MonoBehaviour
     [SerializeField] private Sprite _defaultSprite = null;
     [Tooltip("Image of cart back")]
     [SerializeField] private Sprite _cartBackSprite = null;
+    [Tooltip("Image of right option")]
+    [SerializeField] private Sprite _rightOptionSprite = null;
     [Tooltip("Image of incorrect option")]
     [SerializeField] private Sprite _incorrectOptionSprite = null;
     [Space(height: 5f)]
@@ -60,6 +63,8 @@ public class OptionButton : MonoBehaviour
 
     [Tooltip("It is right option?")]
     [SerializeField] private bool _isRight = false;
+
+    private Sprite _answerSptite = null;
 
     private Button _button = null;
     private Image _image = null;
@@ -117,7 +122,7 @@ public class OptionButton : MonoBehaviour
             _audioSource.outputAudioMixerGroup = _incorrectMixer;
             _audioSource.Play();
 
-            _image.sprite = _incorrectOptionSprite;
+            _answerSptite = _incorrectOptionSprite;
 
             gameObject.GetComponent<RectTransform>().DOScale(1f, 0.1f);
 
@@ -128,7 +133,11 @@ public class OptionButton : MonoBehaviour
             _audioSource.clip = _correctClip;
             _audioSource.outputAudioMixerGroup = _correctMixer;
             _audioSource.Play();
+
+            _answerSptite = _rightOptionSprite;
         }
+
+        StartCoroutine(AnswerFlipAnimation());
 
         OnSetAnswer?.Invoke(_isRight);
     }
@@ -136,6 +145,22 @@ public class OptionButton : MonoBehaviour
     #endregion
 
     #region COROUTINE
+
+    private IEnumerator AnswerFlipAnimation()
+    {
+        float stepAnimationTime = ANSWER_ANIMATION_TIME / STEP_COUNT;
+
+        _rectTransform.DORotate(new Vector3(0f, 90f, 0f), stepAnimationTime);
+
+        yield return new WaitForSeconds(stepAnimationTime);
+
+        _image.sprite = _answerSptite;
+        _optionDisplay.gameObject.SetActive(false);
+
+        _rectTransform.DORotate(new Vector3(0f, 00f, 0f), stepAnimationTime);
+
+        yield break;
+    }
 
     private IEnumerator FlipAnimationCoroutine()
     {
