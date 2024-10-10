@@ -9,11 +9,18 @@ public class GameMenu : MonoBehaviour
 
     #endregion
 
+    [Header("COMPONENTS")]
+    [Tooltip("Yandex metrika")]
+    [SerializeField] private YandexMetrika _metrika = null;
+
+
     #region PUBLIC METHODS
 
     public void GameStarting()
     {
         OnStartGame.Invoke();
+
+        _metrika.OnStartGameStatistic();
     }
 
     #endregion

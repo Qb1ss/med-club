@@ -196,7 +196,9 @@ public class QuestionManager : MonoBehaviour
 
         if (_currentQuestion < _questions.Length - 1)
         {
-            _currentQuestion++; 
+            _currentQuestion++;
+
+            QuestionUpdating();
         }
         else 
         {
@@ -204,9 +206,7 @@ public class QuestionManager : MonoBehaviour
 
             _currentQuestion = 0;
             _rightAnswer = 0;
-        }
-
-        QuestionUpdating();
+        }       
     }
 
     #endregion

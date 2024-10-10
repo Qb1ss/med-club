@@ -37,6 +37,10 @@ public class EndGameController : MonoBehaviour
 
     [Tooltip("Audio controller")]
     [SerializeField] private AudioController _audioController = null;
+    [Space(height: 10f)]
+
+    [Tooltip("Yandex Metrika")]
+    [SerializeField] private YandexMetrika _metrika = null;
 
     #region UNITY
 
@@ -78,6 +82,8 @@ public class EndGameController : MonoBehaviour
         _minWinMenu.gameObject.SetActive(true);
         _middleWinMenu.gameObject.SetActive(true);
         _maxWinMenu.gameObject.SetActive(true);
+
+        _metrika.OnSuccessQuizStatistic();
     }
 
     private void LoseWindowOpening(int rightAnswers)
@@ -85,6 +91,8 @@ public class EndGameController : MonoBehaviour
         _minLoseMenu.gameObject.SetActive(true);
         _middleLoseMenu.gameObject.SetActive(true);
         _maxLoseMenu.gameObject.SetActive(true);
+
+        _metrika.OnFailQuizStatistic();
     }
 
     private void WindowsDisabling()

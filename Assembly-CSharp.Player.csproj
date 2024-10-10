@@ -69,8 +69,8 @@
     <Compile Include="Assets\Scripts\Animations\AnimationDeck.cs" />
     <Compile Include="Assets\Scripts\EndGameController.cs" />
     <Compile Include="Assets\Scripts\Animations\AnimationWhoosh.cs" />
+    <Compile Include="Assets\Scripts\YandexMetrika.cs" />
     <Compile Include="Assets\Scripts\Animations\CartGridAddaptiving.cs" />
-    <Compile Include="Assets\YandexMetrika.cs" />
     <Compile Include="Assets\Scripts\Quiz\Question.cs" />
     <Compile Include="Assets\Scripts\Addaptive.cs" />
     <Compile Include="Assets\Scripts\AudioController.cs" />

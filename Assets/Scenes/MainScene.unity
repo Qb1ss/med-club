@@ -1647,6 +1647,7 @@ MonoBehaviour:
   _maxWinMenu: {fileID: 1739734315}
   _maxLoseMenu: {fileID: 245534270}
   _audioController: {fileID: 1353226556}
+  _metrika: {fileID: 1353226561}
 --- !u!1 &143755047
 GameObject:
   m_ObjectHideFlags: 0
@@ -8854,6 +8855,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4abcbb7df6442747a2147b9c00bb6b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _metrika: {fileID: 1353226561}
 --- !u!1 &817265544
 GameObject:
   m_ObjectHideFlags: 0
@@ -10141,7 +10143,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1353226561}
         m_TargetAssemblyTypeName: YandexMetrika, Assembly-CSharp
-        m_MethodName: GameStatistic
+        m_MethodName: OnStartGameStatistic
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
