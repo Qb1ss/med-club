@@ -93,6 +93,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6490646770829787767, guid: f3bdb6a4c9341144ea4b544f0f143f55, type: 3}
+      propertyPath: _option
+      value: "\u0413\u0438\u043E\u0441\u0446\u0438\u043D\u0430\n\u0431\u0443\u0442\u0438\u043B\u0431\u0440\u043E-\n\u043C\u0438\u0434"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6490646770829787767, guid: f3bdb6a4c9341144ea4b544f0f143f55, type: 3}
       propertyPath: _isRight
       value: 1
       objectReference: {fileID: 0}

@@ -93,6 +93,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6490646770829787767, guid: f3bdb6a4c9341144ea4b544f0f143f55, type: 3}
+      propertyPath: _option
+      value: "\u0423\u043B\u044C\u0442\u0440\u0430\u0437\u0432\u0443-\n\u043A\u043E\u0432\u043E\u0435
+        \n\u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430-\n\u043D\u0438\u0435
+        \n\u0431\u0440\u044E\u0448\u043D\u043E\u0439 \n\u043F\u043E\u043B\u043E\u0441\u0442\u0438\_"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6490646770829787767, guid: f3bdb6a4c9341144ea4b544f0f143f55, type: 3}
       propertyPath: _isRight
       value: 1
       objectReference: {fileID: 0}

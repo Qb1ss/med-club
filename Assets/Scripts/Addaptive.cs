@@ -27,6 +27,11 @@ public class Addaptive : MonoBehaviour
     private const float MIDDLE_BACKGROUND_RATIO = 150f;
     private const float MAX_BACKGROUND_RATIO = 177f; ///v1-2 = 180 | v3.1 = 177 | v3.2 = nn
 
+    private const float MIN_ERROR_RATIO = 75f;
+    private const float SMALL_ERROR_RATIO = 100f;
+    private const float MIDDLE_ERROR_RATIO = 150f;
+    private const float MAX_ERROR_RATIO = 150f;
+
     #endregion
 
     #region EVENTS
@@ -298,7 +303,7 @@ public class Addaptive : MonoBehaviour
 
     private void ErrorAddaptiving(float ratio)
     {
-        if (ratio <= MIN_BACKGROUND_RATIO)
+        if (ratio <= MIN_ERROR_RATIO)
         {
             _errorCanvas.GetComponent<CanvasScaler>().matchWidthOrHeight = 1f;
 
@@ -308,7 +313,7 @@ public class Addaptive : MonoBehaviour
             _maxError.gameObject.SetActive(false);
         }
 
-        if (ratio > MIN_BACKGROUND_RATIO && ratio <= SMALL_BACKGROUND_RATIO)
+        if (ratio > MIN_ERROR_RATIO && ratio <= SMALL_ERROR_RATIO)
         {
             _errorCanvas.GetComponent<CanvasScaler>().matchWidthOrHeight = 0f;
 
@@ -318,9 +323,9 @@ public class Addaptive : MonoBehaviour
             _maxError.gameObject.SetActive(false);
         }
 
-        if (ratio > SMALL_BACKGROUND_RATIO && ratio <= MAX_BACKGROUND_RATIO)
+        if (ratio > SMALL_ERROR_RATIO && ratio <= MAX_ERROR_RATIO)
         {
-            _errorCanvas.GetComponent<CanvasScaler>().matchWidthOrHeight = 1f;
+            _errorCanvas.GetComponent<CanvasScaler>().matchWidthOrHeight = 0f;
 
             _minError.gameObject.SetActive(false);
             _smallError.gameObject.SetActive(false);
@@ -328,9 +333,9 @@ public class Addaptive : MonoBehaviour
             _maxError.gameObject.SetActive(false);
         }
 
-        if (ratio > MAX_BACKGROUND_RATIO)
+        if (ratio > MAX_ERROR_RATIO)
         {
-            _errorCanvas.GetComponent<CanvasScaler>().matchWidthOrHeight = 0f;
+            _errorCanvas.GetComponent<CanvasScaler>().matchWidthOrHeight = 1f;
 
             _minError.gameObject.SetActive(false);
             _smallError.gameObject.SetActive(false);
