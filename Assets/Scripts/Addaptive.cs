@@ -14,7 +14,8 @@ public class Addaptive : MonoBehaviour
     #region CONSTS
 
     private const float MIN_MENU_RATIO = 100f;
-    private const float MAX_MENU_RATIO = 150f;
+    private const float MIDDLE_MENU_RATIO = 120;
+    private const float MAX_MENU_RATIO = 145f;
 
     private const float MIN_QUIZ_RATIO = 100f;
 
@@ -36,6 +37,8 @@ public class Addaptive : MonoBehaviour
 
     [Header("COMPONENTS")]
     [Header("Menu")]
+    [Tooltip("Thiin menu")]
+    [SerializeField] private GameObject _thinMenu = null;
     [Tooltip("Min menu")]
     [SerializeField] private GameObject _minMenu = null;
     [Tooltip("Middle menu")]
@@ -180,13 +183,23 @@ public class Addaptive : MonoBehaviour
     {
         if (ratio <= MIN_MENU_RATIO)
         {
+            _thinMenu.gameObject.SetActive(true);
+            _minMenu.gameObject.SetActive(false);
+            _middleMenu.gameObject.SetActive(false);
+            _maxMenu.gameObject.SetActive(false);
+        }
+
+        if (ratio > MIN_MENU_RATIO && ratio <= MIDDLE_MENU_RATIO)
+        {
+            _thinMenu.gameObject.SetActive(false);
             _minMenu.gameObject.SetActive(true);
             _middleMenu.gameObject.SetActive(false);
             _maxMenu.gameObject.SetActive(false);
         }
 
-        if (ratio > MIN_MENU_RATIO && ratio <= MAX_MENU_RATIO)
+        if (ratio > MIDDLE_MENU_RATIO && ratio <= MAX_MENU_RATIO)
         {
+            _thinMenu.gameObject.SetActive(false);
             _minMenu.gameObject.SetActive(false);
             _middleMenu.gameObject.SetActive(true);
             _maxMenu.gameObject.SetActive(false);
@@ -194,6 +207,7 @@ public class Addaptive : MonoBehaviour
 
         if (ratio > MAX_MENU_RATIO)
         {
+            _thinMenu.gameObject.SetActive(false);
             _minMenu.gameObject.SetActive(false);
             _middleMenu.gameObject.SetActive(false);
             _maxMenu.gameObject.SetActive(true);
