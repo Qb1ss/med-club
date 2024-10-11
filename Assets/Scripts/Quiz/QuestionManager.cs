@@ -157,7 +157,7 @@ public class QuestionManager : MonoBehaviour
     ///запуск обновление вопроса
     private void QuestionUpdating()
     {
-        if (gameObject.activeInHierarchy == true) StartCoroutine(QuestionUpdatingCoroutine());
+        //if (gameObject.activeInHierarchy == true) StartCoroutine(QuestionUpdatingCoroutine());
     }
 
     ///очистка прошлого варианта

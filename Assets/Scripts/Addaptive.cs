@@ -303,6 +303,7 @@ public class Addaptive : MonoBehaviour
 
     private void ErrorAddaptiving(float ratio)
     {
+        /*
         StopAllCoroutines();
 
         if (ratio <= MIN_ERROR_RATIO)
@@ -344,6 +345,7 @@ public class Addaptive : MonoBehaviour
             _middleError.gameObject.SetActive(false);
             _maxError.gameObject.SetActive(true);
         }
+        */
     }
 
     #endregion

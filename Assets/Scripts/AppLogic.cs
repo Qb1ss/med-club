@@ -156,7 +156,7 @@ public class AppLogic : MonoBehaviour
     {
         _ratio = ratio;
         
-        if (_questionCanvas.gameObject.activeInHierarchy == true) RatioError();
+        //if (_questionCanvas.gameObject.activeInHierarchy == true) RatioError();
 
         OnSideUpdate?.Invoke(_ratio);
     }
