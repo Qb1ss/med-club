@@ -55,6 +55,10 @@ public class QuestionManager : MonoBehaviour
 
     [Tooltip("Progress bar animation time")]
     [SerializeField] [Range(0.1f, 1f)] private float _sliderAnimationTime = 0.5f;
+    [Space(height: 10f)]
+
+    [Tooltip("Screen block")]
+    [SerializeField] private Image _screenBlock = null;
 
     private TextMeshProUGUI _questionText = null;
     private GridLayoutGroup _optionButtons = null;
@@ -83,6 +87,8 @@ public class QuestionManager : MonoBehaviour
         _progressBarSlider.DOValue(_currentQuestion + 1, _sliderAnimationTime);
 
         OptionButton.OnSetAnswer.AddListener(SetAnswer);
+
+        _screenBlock.gameObject.SetActive(false);
     }
 
     private void OnEnable()
@@ -183,6 +189,8 @@ public class QuestionManager : MonoBehaviour
             _attempt++;
         }
 
+        _screenBlock.gameObject.SetActive(true);
+
         OnExitAnimation?.Invoke();
 
         QuestionValueCheching();
@@ -202,6 +210,8 @@ public class QuestionManager : MonoBehaviour
         else 
         {
             OnEndedQuiz?.Invoke(_rightAnswer);
+
+            _screenBlock.gameObject.SetActive(false);
 
             _currentQuestion = 0;
             _rightAnswer = 0;
@@ -226,7 +236,6 @@ public class QuestionManager : MonoBehaviour
         _attempt = 0;
 
         StartCoroutine(SetPositionCoroutine());
-        //StopCoroutine(SetPositionCoroutine());
 
         yield break;
     }
@@ -254,6 +263,8 @@ public class QuestionManager : MonoBehaviour
 
             Instantiate(_optionButton[i], _optionButtons.transform);
         }
+
+        _screenBlock.gameObject.SetActive(false);
 
         yield break;
     }
