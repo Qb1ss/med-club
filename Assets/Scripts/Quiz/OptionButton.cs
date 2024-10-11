@@ -15,8 +15,8 @@ public class OptionButton : MonoBehaviour
     private const float ANIMATION_TIME = 1f;
     private const float ANSWER_ANIMATION_TIME = 0.5f;
     private const float ENABLE_AUTO_SIZING = 70f;
-    private const float MAX_FONT_SIZE = 80f;
-    private const float MIN_FONT_SIZE = 120f;
+    private const float MIN_FONT_SIZE = 80f;
+    private const float MAX_FONT_SIZE = 150f;
 
     private const int STEP_COUNT = 2;
 
