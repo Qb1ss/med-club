@@ -283,8 +283,8 @@ MonoBehaviour:
   _exitAnimationTime: 1
   _defaultSprite: {fileID: 21300000, guid: 4eb2729541a768d4eb2f3b636d81e7a0, type: 3}
   _cartBackSprite: {fileID: -7301364224977939724, guid: d6c3d0134751d8e49aa5d783186f0c0b, type: 3}
-  _rightOptionSprite: {fileID: -2441281752458939216, guid: da3ddb6916b18e04d84a88b5b7e97bac, type: 3}
-  _incorrectOptionSprite: {fileID: -3916301589823463316, guid: 57e2fffda7ecde04a828678d867c7db3, type: 3}
+  _rightOptionSprite: {fileID: 107410472497827275, guid: b42766bf054ca4e4da7ae5d820e2d597, type: 3}
+  _incorrectOptionSprite: {fileID: -2159301786708351913, guid: 3167e8a956a05d54e9f6a41b2a919110, type: 3}
   _correctClip: {fileID: 8300000, guid: 515aacb332e986a42a74b5867b001d83, type: 3}
   _incorrectClip: {fileID: 8300000, guid: 635a4e0def0bf334a867f424ec6bcbe7, type: 3}
   _correctMixer: {fileID: -3805246937217771838, guid: 3d34a539b57947643a00cfc3dd8b0d7a, type: 2}

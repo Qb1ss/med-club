@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "E:\\Unity\\Projects\\med-club\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A7D668AD-76F0-0F7A-2178-243980C3210D}|Assembly-CSharp.csproj|e:\\unity\\projects\\med-club\\assets\\scripts\\quiz\\questionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7D668AD-76F0-0F7A-2178-243980C3210D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\quiz\\questionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A7D668AD-76F0-0F7A-2178-243980C3210D}|Assembly-CSharp.csproj|e:\\unity\\projects\\med-club\\assets\\scripts\\yandexmetrika.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7D668AD-76F0-0F7A-2178-243980C3210D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\yandexmetrika.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,14 +19,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "QuestionManager.cs",
-              "DocumentMoniker": "E:\\Unity\\Projects\\med-club\\Assets\\Scripts\\Quiz\\QuestionManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Quiz\\QuestionManager.cs",
-              "ToolTip": "E:\\Unity\\Projects\\med-club\\Assets\\Scripts\\Quiz\\QuestionManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Quiz\\QuestionManager.cs",
-              "ViewState": "AgIAAGwAAAAAAAAAAAAqwJYAAAAJAAAAAAAAAA==",
+              "Title": "YandexMetrika.cs",
+              "DocumentMoniker": "E:\\Unity\\Projects\\med-club\\Assets\\Scripts\\YandexMetrika.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\YandexMetrika.cs",
+              "ToolTip": "E:\\Unity\\Projects\\med-club\\Assets\\Scripts\\YandexMetrika.cs",
+              "RelativeToolTip": "Assets\\Scripts\\YandexMetrika.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-11T05:15:25.437Z",
+              "WhenOpened": "2024-10-15T07:11:06.894Z",
               "EditorCaption": ""
             }
           ]
