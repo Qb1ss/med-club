@@ -23,6 +23,10 @@ public class AppLogic : MonoBehaviour
     [Header("PARAMETERS")]
     [Tooltip("Corrent answer value")]
     [SerializeField] private int _correntAnswerValue = 5;
+    [Space(height: 5f)]
+
+    [Tooltip("Is full screen?")]
+    [SerializeField] private bool _isFullScreen = true;
 
     [Header("COMPONENTS")]
     [Tooltip("Menu canvas")]
@@ -57,7 +61,7 @@ public class AppLogic : MonoBehaviour
 
     private void Start()
     {
-        Screen.fullScreen = !Screen.fullScreen;
+        Screen.fullScreen = _isFullScreen;
     }
 
     private void OnEnable()
@@ -156,7 +160,7 @@ public class AppLogic : MonoBehaviour
     {
         _ratio = ratio;
         
-        //if (_questionCanvas.gameObject.activeInHierarchy == true) RatioError();
+        if (_questionCanvas.gameObject.activeInHierarchy == true) RatioError();
 
         OnSideUpdate?.Invoke(_ratio);
     }
