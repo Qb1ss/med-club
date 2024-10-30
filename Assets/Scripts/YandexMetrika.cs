@@ -9,11 +9,11 @@ public class YandexMetrika : MonoBehaviour
 
     public void OnSuccessQuizStatistic()
     {
-        Application.ExternalEval("ym(98757139,'reachGoal','success_game')");
+        Application.ExternalEval("ym(98757139,'reachGoal','success_quiz')");
     }
 
     public void OnFailQuizStatistic()
     {
-        Application.ExternalEval("ym(98757139,'reachGoal','fail_game')");
+        Application.ExternalEval("ym(98757139,'reachGoal','fail_quiz')");
     }
 }

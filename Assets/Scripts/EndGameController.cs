@@ -79,20 +79,20 @@ public class EndGameController : MonoBehaviour
 
     private void WinWindowOpening(int rightAnswers)
     {
+        _metrika.OnSuccessQuizStatistic();
+
         _minWinMenu.gameObject.SetActive(true);
         _middleWinMenu.gameObject.SetActive(true);
         _maxWinMenu.gameObject.SetActive(true);
-
-        _metrika.OnSuccessQuizStatistic();
     }
 
     private void LoseWindowOpening(int rightAnswers)
     {
+        _metrika.OnFailQuizStatistic();
+
         _minLoseMenu.gameObject.SetActive(true);
         _middleLoseMenu.gameObject.SetActive(true);
         _maxLoseMenu.gameObject.SetActive(true);
-
-        _metrika.OnFailQuizStatistic();
     }
 
     private void WindowsDisabling()

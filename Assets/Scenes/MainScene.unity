@@ -16810,7 +16810,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 133724326}
         m_TargetAssemblyTypeName: EndGameController, Assembly-CSharp
-        m_MethodName: LinkToMaterial
+        m_MethodName: LinkToSite
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
